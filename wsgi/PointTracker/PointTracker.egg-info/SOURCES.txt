@@ -89,6 +89,7 @@ pointtracker/static/graphics/red_warning_sign_small.png
 pointtracker/static/graphics/red_x_small.png
 pointtracker/static/graphics/refresh_animated.gif
 pointtracker/static/graphics/round_red_x_sign_4229.jpg
+pointtracker/static/graphics/sign_in_page.png
 pointtracker/static/graphics/sky_team_large.png
 pointtracker/static/graphics/sky_team_small.png
 pointtracker/static/graphics/star_alliance_big.png
@@ -102,6 +103,7 @@ pointtracker/static/jquery/jquery_1.9.1/jquery.js
 pointtracker/static/js/index.js
 pointtracker/static/js/jquery.cookie.js
 pointtracker/static/js/pointtracker.js
+pointtracker/templates/FAQ2.html
 pointtracker/templates/index - Copy.html
 pointtracker/templates/index - just in case.html
 pointtracker/templates/index _template.html
@@ -117,6 +119,7 @@ pointtracker/templates/mytemplate.pt
 pointtracker/templates/pointtracker.html
 pointtracker/templates/python_template_snippet.txt
 pointtracker/templates/test_datetimepicker.html
+pointtracker/templates/test_page.html
 pointtracker/templates/aold/bootstrap_index.html
 pointtracker/templates/aold/bootstrap_template.html
 pointtracker/templates/aold/html_template.html

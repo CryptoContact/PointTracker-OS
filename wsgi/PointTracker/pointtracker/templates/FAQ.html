@@ -11,7 +11,6 @@
     <link href="/static/bootstrap/bootstrap_2.3.1/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="/static/bootstrap/bootstrap_2.3.1/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="/static/css/pointtracker.css" rel="stylesheet">
-##    <link href="/static/bootstrap/bootstrap_2.3.1/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" media="screen">
     <link rel="shortcut icon" href="/static/favicon.ico">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,12 +18,23 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  </head>
+##
+##    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+##    <!--[if lt IE 9]>
+##      <script src="../assets/js/html5shiv.js"></script>
+##    <![endif]-->
+
+    <!-- Fav and touch icons -->
+##    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-144-precomposed.png">
+##    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-114-precomposed.png">
+##      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-72-precomposed.png">
+##                    <link rel="apple-touch-icon-precomposed" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-57-precomposed.png">
+##                                   <link rel="shortcut icon" href="/static/bootstrap/bootstrap_2.3.1/ico/favicon.png">
 
 
 
-  <body>
-<style type="text/css">
+
+    <style type="text/css">
 
       /* Sticky footer styles
       -------------------------------------------------- */
@@ -32,6 +42,8 @@
       html,
       body {
         height: 100%;
+##        background: #EDF8FD;
+        background: #ECF7FE;
         /* The html and body elements cannot have any padding or margin. */
       }
 
@@ -71,7 +83,8 @@
 
       .container {
         width: auto;
-        max-width: 960px;
+##        max-width: 680px;
+        max-width: 800px;
       }
       .container .credit {
         margin: 20px 0;
@@ -81,18 +94,24 @@
 
 
 
+  </head>
+
+  <body>
 
 
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
 
+      <!-- Begin page content -->
+      <div class="container">
+##        <div class="page-header">
+##          <h1>Sticky footer</h1>
+##        </div>
+##        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+##        <p>Use <a href="#">the sticky footer</a> with a fixed navbar if need be, too.</p>
 
-
-
-
-     <div id="wrap">
-     <!-- Begin page content -->
-         <div class="container">
-            <div>
-                <img style="text-align: center"  src="/static/graphics/pointtracker_header.png" alt="airplane logo" height="200" width="1280">
+               <div>
+                <img style="text-align: center"  src="/static/graphics/pointtracker_header.png" alt="airplane logo" height="220" width="1280">
             </div>
             <div class="navbar">
               <div class="navbar-inner">
@@ -104,64 +123,68 @@
             </div>
 
 ##      <div style="text-align: left">
-          <h3><b>How many Reward Programs do you support?</b></h3>
-          <p>PointTracker currently supports six Reward Programs.<br>
+
+            <h3><b>What is PointTracker?</b></h3>
+            <span>PointTracker let's you track your Reward Points all in one place.  It keeps track of important information such as last activity and expiration dates.
+            </span>
+            <br>
+            <h3><b>Is PointTracker free and open to the public?</b></h3>
+            <span>Yes, however it is a work in progress and there no guarantees that the website will always be fully operational. It's purely a hobby project to learn
+              the inner workings of internet programming and development.  Use at your own risk but have fun with it!
+            </span>
+            <br>
+            <h3><b>How many Reward Programs do you support?</b></h3>
+            <p>PointTracker currently supports six Reward Programs.<br>
             <li>American Airlines</li>
             <li>United Airlines</li>
             <li>Delta Airlines</li>
             <li>US Airways</li>
             <li>British Airways</li>
             <li>EVA Air</li>
-          <h3><b>Can I create multiple sub accounts in my main PointTracker account?</b></h3>
-          <span>Yes!  You can add as many sub accounts as would like. For instance, you create a sub account for each member of your family.
-          </span>
-          <br>
-          <h3><b>Are my Reward Program passwords safe?</b></h3>
-          <span>All Reward Program passwords are stored on the PointTracker server in AES 256 bit Encryption.  Your PointTracker password is not stored anywhere on our servers.
-          All information is sent to our servers over HTTPS.</span>
-          <br>
-          <h3><b>What type of encryption is used?</b></h3>
-          <span>Reward Program passwords are encrypted with AES 256 encryption</span>
-          <br>
-          <h3><b>What information is stored on the PointTracker server?</b></h3>
-          <span>Besides the general information of each Reward Program you register (Account name, Account Number, Points, etc),
-          your name, Reward Program usernames and Reward Program passwords are stored on the server.
-          Reward Program passwords are encrypted with AES 256 encryption</span>
-          <br>
-          <h3><b>I forgot my Username and/or Password, how can I retrieve them?</b></h3>
-          <span>Unfortunately you can not retrieve any login information from you PointTracker account.  This is because we do not store that information in our database.
-          The benefit is added security for your information.  The side effect is that you must remember your login information.  Please make a new PointTracker account.</span>
-          <br>
-          <h3><b>Can the PointTracker admin see my Reward Program passwords?</b></h3>
-          <span>No.  PointTracker encrypts your Reward Programs and uses your PointTracker password as the key. We don't store you PointTracker password so we are unable decrypt any information.
-          The benefit is added security for your information.  The side effect is that you must remember your login information.</span>
-          <br>
-          <h3><b>Why did I see a warning when I came to the PointTracker website?  Is it safe?</b></h3>
-          <span>Yes it is safe.  The warning is posted because currently PointTracker is hosted by a web server that does not support custom https certificates.
-          They just offer a general https certificate that covers everybody thus resulting in the warning.
-          The web host will be adding https custom certificates in summer 2013.  Once implemented the 'trusted site' warning will go away.</span>
-          <br>
-##      </div>
-##             </div>
-##         </div>
-     </div>
-     <div id="push"></div>
-     </div>
+
+            <h3><b>Can I create multiple sub accounts in my main PointTracker account?</b></h3>
+            <span>Yes!  You can add as many sub accounts as would like. For instance, you create a sub account for each member of your family.
+            </span>
+            <br>
+            <h3><b>Are my Reward Program passwords safe?</b></h3>
+            <span>All Reward Program passwords are stored on the PointTracker server in AES 256 bit Encryption.  Your PointTracker password is not stored anywhere on our servers.
+            All information is sent to our servers over HTTPS.</span>
+            <br>
+            <h3><b>What type of encryption is used?</b></h3>
+            <span>Reward Program passwords are encrypted with AES 256 encryption</span>
+            <br>
+            <h3><b>What information is stored on the PointTracker server?</b></h3>
+            <span>Besides the general information of each Reward Program you register (Account name, Account Number, Points, etc),
+            your name, Reward Program usernames and Reward Program passwords are stored on the server.
+            Reward Program passwords are encrypted with AES 256 encryption</span>
+            <br>
+            <h3><b>I forgot my Username and/or Password, how can I retrieve them?</b></h3>
+            <span>Unfortunately you can not retrieve any login information from you PointTracker account.  This is because we do not store that information in our database.
+            The benefit is added security for your information.  The side effect is that you must remember your login information.  Please make a new PointTracker account.</span>
+            <br>
+            <h3><b>Can the PointTracker admin see my Reward Program passwords?</b></h3>
+            <span>No.  PointTracker encrypts your Reward Programs and uses your PointTracker password as the key. We don't store you PointTracker password so we are unable decrypt any information.
+            The benefit is added security for your information.  The side effect is that you must remember your login information.</span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
 
 
+      </div>
 
 
+      <div id="push"></div>
+    </div>
 
-  <!-- Footer
-  ================================================== -->
+
     <footer class="footer">
       <div class="container" style="text-align: center">
         <p>Copyright 2013 PointTracker LLC</p>
       </div>
     </footer>
-
-
-
 
 
 

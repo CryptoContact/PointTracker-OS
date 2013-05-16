@@ -19,13 +19,19 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+
+          <!-- Fav and touch icons -->
+##    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-144-precomposed.png">
+##    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-114-precomposed.png">
+##      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-72-precomposed.png">
+##                    <link rel="apple-touch-icon-precomposed" href="/static/bootstrap/bootstrap_2.3.1/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
 
 
   <body>
 
-   <style type="text/css">
+    <style type="text/css">
 
       /* Sticky footer styles
       -------------------------------------------------- */
@@ -33,6 +39,10 @@
       html,
       body {
         height: 100%;
+##        background: #DFF3FC;
+##        background: #EDF8FD;
+        background: #ECF7FE;
+##        background: #FAFFFF;
         /* The html and body elements cannot have any padding or margin. */
       }
 
@@ -72,70 +82,53 @@
 
       .container {
         width: auto;
-        max-width: 960px;
+##        max-width: 680px;
+        max-width: 800px;
       }
       .container .credit {
         margin: 20px 0;
       }
 
-                 body { background: #DFF3FC; }
     </style>
 
 
-##      <style type="text/css">
-##          body { background: #DFF3FC; }
-##      </style>
-
-##       <div>
-##            <img style="text-align: center"  src="/static/graphics/pointtracker_header.png" alt="airplane logo" height="200" width="1280">
-##       </div>
-##
-##      <div class="navbar">
-##          <div class="navbar-inner">
-##              <ul class="nav">
-##                  <li class="active"><a href="#">Home</a></li>
-##                  <li><a href="/FAQ">FAQ</a></li>
-##                  <li><a href="/test_page">Test Page</a></li>
-##              </ul>
-##          </div>
-##      </div>
 
 
-       <div id="wrap">
+        <div id="wrap">
      <!-- Begin page content -->
-     <div class="container">
-         <div>
-             <img style="text-align: center"  src="/static/graphics/pointtracker_header.png" alt="airplane logo" height="200" width="1280">
-         </div>
-         <div class="navbar">
-             <div class="navbar-inner">
-                 <ul class="nav">
-                     <li class="active"><a href="/pointtracker">Home</a></li>
-                     <li><a href="/FAQ">FAQ</a></li>
-                     <li><a href="/test_page">Test Page</a></li>
-                 </ul>
+             <div class="container">
+                 <div>
+                     <img style="text-align: center"  src="/static/graphics/pointtracker_header.png" alt="airplane logo" height="200" width="1280">
+                 </div>
+                 <div class="navbar">
+                     <div class="navbar-inner">
+                         <ul class="nav">
+                             <li class="active"><a href="/pointtracker">Home</a></li>
+                             <li><a href="/FAQ">FAQ</a></li>
+##                             <li><a href="/test_page">Test Page</a></li>
+                         </ul>
+                     </div>
+                 </div>
+
+                  <div style="text-align: center">
+                      <br>
+                      <br>
+                      <a href="#Register_Modal" onclick = "Register()" class="btn btn-large btn-primary" data-toggle="modal">Register</a>
+                      <a href="#Sign_In_Modal" onclick = "Sign_In()" class="btn btn-large btn-success" data-toggle="modal">Sign in</a>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div>
+                      <img style="text-align:center"    src="/static/graphics/sign_in_page.png" alt="sign_in_intro" height="600" width="1280">
+                  </div>
+
+                  <br>
+                  <br>
+                  <br>
              </div>
-         </div>
-     </div>
-
-
-
-
-      <div style="text-align: center">
-          <br>
-          <br>
-          <a href="#Register_Modal" onclick = "Register()" class="btn btn-large btn-primary" data-toggle="modal">Register</a>
-          <a href="#Sign_In_Modal" onclick = "Sign_In()" class="btn btn-large btn-success" data-toggle="modal">Sign in</a>
-          <br>
-          <br>
-          <br>
-          <br>
-      </div>
-
-      <div>
-          <img style="text-align:center"    src="/static/graphics/sign_in_page.png" alt="sign_in_intro" height="600" width="1280">
-      </div>
-
 
      <div id="push"></div>
  </div>
