@@ -1,0 +1,46 @@
+#!/usr/bin/python
+import os, sys
+
+here = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(here, 'pointtracker'))
+config = os.path.join(here, 'PointTracker', 'production.ini')
+
+print ('CONFIG =', config)
+#virtenv = os.environ.get('APPDIR', '~/') + '/virtenv/'
+#os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python3.3/site-packages')
+#virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
+#try:
+#    execfile(virtualenv, dict(__file__=virtualenv))
+#except:
+#    pass
+#
+
+
+PYCART_DIR = ''.join(['python-', '.'.join(map(str, sys.version_info[:2]))])
+
+
+try:
+   zvirtenv = os.path.join(os.environ['OPENSHIFT_HOMEDIR'], PYCART_DIR,
+                           'virtenv', 'bin', 'activate_this.py')
+
+   exec(compile(open(zvirtenv).read(), zvirtenv, 'exec'),
+        dict(__file__ = zvirtenv) )
+except IOError:
+   pass
+
+
+
+
+
+
+
+import logging.config
+logging.config.fileConfig(config)
+
+from pyramid.paster import get_app
+application = get_app(config, 'main')
+
+#if __name__  == '__main__':
+#    from wsgiref.simple_server import make_server
+#    httpd = make_server('localhost', 8051, application)
+#    httpd.handle_request()
