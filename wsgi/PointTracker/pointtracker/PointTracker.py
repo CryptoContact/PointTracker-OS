@@ -46,12 +46,16 @@ def Init_App():
 
 #    if Globalvars.DEVELOPMENT:
     if not 'OPENSHIFT_DATA_DIR' in os.environ:                              #if no OPENSHIFT key then we must be local
+        Globalvars.DEVELOPMENT = True
+        Globalvars.DEPLOY = False
         Globalvars.AES_Key = mtk.read_file("AES_Key.dng")
         Globalvars.Saltstring = mtk.read_file("Saltstring.dng")
         mongo_con = Connection('localhost', 27017)
         mongo_db = mongo_con.PT_database                                     ## is the database created? if not created it (PT_database)
 
     else:
+        Globalvars.DEVELOPMENT = False
+        Globalvars.DEPLOY = True
 
         Globalvars.AES_Key = mtk.read_file2(os.environ['OPENSHIFT_DATA_DIR'],"AES_Key.dng")
         Globalvars.Saltstring = mtk.read_file2(os.environ['OPENSHIFT_DATA_DIR'],"Saltstring.dng")
