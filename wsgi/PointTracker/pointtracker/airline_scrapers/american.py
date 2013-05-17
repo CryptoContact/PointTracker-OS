@@ -6,6 +6,7 @@ from datetime import datetime
 #from ptserver import AES_Key
 #from constants import AES_Key
 import Globalvars
+import re
 
 def get_program_account_info(RP_account):
     url_loginSubmit = 'https://www.aa.com/login/loginSubmit.do'
@@ -40,13 +41,13 @@ def scrape_webpage(html):
     soup0 = BeautifulSoup(html,"lxml")
 #    mtk.write_file(str(s),'americansoup.txt')
     RP_account_name = str(soup0.find('li', class_='aa-personalInfo-name'))                  #Name
+    RP_account_num = str(soup0.find_all('ul', class_='personalInfo'))                  #Account #
 
     RP_account['RP_error'] = False                                                  #clear any error so we can test again
     if RP_account_name == 'None':                                                           #Bad username, password, or general error from server.
         RP_account['RP_error'] = True
         return RP_account
 
-    RP_account_num_list = soup0.find_all('strong')                                  #Account is first in list
     RP_balance = str(soup0.find('td', class_='pbnTableTotal hright'))               #balance
     RP_expiration_date = str(soup0.find('div', id='summaryData'))                   #Expiration
     RP_last_activity_date = str(soup0.find('div', class_='pbnMember floatLeft'))    #Last Activity
@@ -59,10 +60,10 @@ def scrape_webpage(html):
     RP_account_name = RP_account_name.title()                                                       #name and capitalize first, middle, last
     RP_account['RP_account_name'] = RP_account_name
 
-    RP_account_num = str(RP_account_num_list[0])                              #account num is first item in list
-    RP_account_num = RP_account_num.replace('<strong>','')                                     #remove first tag
-    RP_account_num = RP_account_num.replace('</strong>','')                                      #remove end tag
-    RP_account['RP_account_num'] = RP_account_num                                 #account num
+    s_index = RP_account_num.find('<strong>')
+    e_index = RP_account_num.find('</strong>')
+    RP_account_num =  RP_account_num[s_index+len('<strong>'):e_index]                           #cut out everything between the 2 <strong>
+    RP_account['RP_account_num'] = RP_account_num                                               #account num
 
     RP_balance = RP_balance.replace('<td class="pbnTableTotal hright">','')                  #remove first part of tag
     RP_balance = RP_balance.replace('</td>','')                                              #remove second part of tag to leave only name
