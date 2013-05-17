@@ -26,7 +26,9 @@ import Globalvars
 @view_config(route_name='home', renderer='pointtracker:templates/index.html')               #pull up our index.html
 def server_view0(request):
     if request.url.startswith('http:') and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
-        return HTTPFound('https' + request.url[4:])                                         #Redirect traffic to https
+        redirect_url= 'https' + request.url[4:]
+        print ('Redirecting to :', redirect_url)
+        return HTTPFound(redirect_url)                                         #Redirect traffic to https
 
     if 'PointTracker_Login' in request.cookies:                                             #is the cookie set?
         url = request.route_url('pointtracker')                                             #cookie was set so redirect
