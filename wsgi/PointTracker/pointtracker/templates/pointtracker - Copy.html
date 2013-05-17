@@ -61,112 +61,56 @@
 
 ##  <body>
   <body onload="Display_PointTracker_Account()">
-##        <style type="text/css">
-##          body {
-####                background: #DFF3FC;
-####                background: #EDF8FD;
-##                background: #ECF7FE;
-##                }
-##        </style>
+        <style type="text/css">
+          body {
+##                background: #DFF3FC;
+##                background: #EDF8FD;
+                background: #ECF7FE;
+                }
+        </style>
 
-    <style type="text/css">
-
-      /* Sticky footer styles
-      -------------------------------------------------- */
-
-      html,
-      body {
-        height: 100%;
-##        background: #DFF3FC;
-##        background: #EDF8FD;
-        background: #ECF7FE;
-##        background: #FAFFFF;
-        /* The html and body elements cannot have any padding or margin. */
-      }
-
-      /* Wrapper for page content to push down footer */
-      #wrap {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto -60px;
-      }
-
-      /* Set the fixed height of the footer here */
-      #push,
-      #footer {
-        height: 60px;
-      }
-      #footer {
-        background-color: #f5f5f5;
-      }
-
-      /* Lastly, apply responsive CSS fixes as necessary */
-      @media (max-width: 767px) {
-        #footer {
-          margin-left: -20px;
-          margin-right: -20px;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
+##<style>
+##html {
+##  height: 1200px;
+##  background-image: -moz-linear-gradient(top, #DFF3FC, #FFF);
+##  background-image: -ms-linear-gradient(top, #DFF3FC, #FFF);
+##  background-image: -webkit-linear-gradient(top, #1984FF, #DFF3FC);
+##  background-image: -o-linear-gradient(top, #DFF3FC, #FFF);
+##  background-image: linear-gradient(top, #DFF3FC, #FFF);
+##  margin: 0 0 10px 0;
+##}
+##
+##</style>
 
 
-
-      /* Custom page CSS
-      -------------------------------------------------- */
-      /* Not required for template or sticky footer method. */
-
-      .container {
-        width: auto;
-##        max-width: 680px;
-##        max-width: 800px;
-        max-width: 960px;
-      }
-      .container .credit {
-        margin: 20px 0;
-      }
-
-    </style>
-
-
-
-
-
-        <div id="wrap">
-     <!-- Begin page content -->
-            <div class="container">
-
-
-                <div style="text-align: center">
-                    <img style="text-align:center"    src="/static/graphics/pointtracker_header.png" alt="airplane logo" height="200" width="1280">
-                </div>
+        <div style="text-align: center">
+            <img style="text-align:center"    src="/static/graphics/pointtracker_header.png" alt="airplane logo" height="200" width="1280">
+        </div>
 
 ##        <div class="well well-small">
 ##            <div id="Welcome_User_Tag"></div>
 ##            <a href="/sign_out" style="float: right;  text-align: right;">Sign Out</a>
 ##        </div>
 
-                <div class="navbar">
-                  <div class="navbar-inner">
-                      <ul class="nav">
-                          <li class="active"><a href="#">Home</a></li>
-                          <li><a href="/FAQ">FAQ</a></li>
-                          <li><a href="/sign_out">Sign Out</a></li>
-                      </ul>
-                      <div style="float: right;  text-align: right;" id="Welcome_User_Tag"></div>
-                  </div>
-                </div>
+      <div class="navbar">
+          <div class="navbar-inner">
+              <ul class="nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="/FAQ">FAQ</a></li>
+                  <li><a href="/sign_out">Sign Out</a></li>
+              </ul>
+              <div style="float: right;  text-align: right;" id="Welcome_User_Tag"></div>
+          </div>
+      </div>
 
 ##Update PointTracker Account Button
 
-                <div style="text-align: center">
-                    <a href="#Update_PointTracker_Account" onclick = "Update_PointTracker_Account()" class="btn btn-large btn-primary">Update PointTracker Account</a>
-                    <br>
-                    <br>
-                    <a href="#" onclick = "Add_Sub_Account()" class="btn btn btn-success">Add PointTracker Sub Account</a>
-                </div>
+            <div style="text-align: center">
+                <a href="#Update_PointTracker_Account" onclick = "Update_PointTracker_Account()" class="btn btn-large btn-primary">Update PointTracker Account</a>
+                <br>
+                <br>
+                <a href="#" onclick = "Add_Sub_Account()" class="btn btn btn-success">Add PointTracker Sub Account</a>
+            </div>
 
 
 
@@ -175,19 +119,8 @@
 ## Dynamically added table gets insert at this tag
 
 ##            <br>
-                <br>
-                <div id='sub_account_table'></div>
-                <div id="push"></div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-
+            <br>
+            <div id='sub_account_table'></div>
 
 
 

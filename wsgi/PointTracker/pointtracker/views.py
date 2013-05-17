@@ -143,7 +143,19 @@ def server_view15(request):
     return {}
 
 
+@view_config(route_name='One_World', renderer='pointtracker:templates/One_World.html')               #pull up our FAQ.html
+def server_view16(request):
+    return {}
 
+
+@view_config(route_name='Star_Alliance', renderer='pointtracker:templates/Star_Alliance.html')               #pull up our FAQ.html
+def server_view17(request):
+    return {}
+
+
+@view_config(route_name='Sky_Team', renderer='pointtracker:templates/Sky_Team.html')               #pull up our FAQ.html
+def server_view18(request):
+    return {}
 
 
 

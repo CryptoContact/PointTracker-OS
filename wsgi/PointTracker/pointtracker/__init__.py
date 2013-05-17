@@ -28,6 +28,9 @@ def main(global_config, **settings):
     config.add_route('home', '/')                                       #sign in page
     config.add_route('Sign_Out', '/sign_out')                           #sign out (this gets redirected back to 'home' or '/'
     config.add_route('FAQ', '/FAQ')                           #sign out (this gets redirected back to 'home' or '/'
+    config.add_route('One_World', '/One_World')                           #sign out (this gets redirected back to 'home' or '/'
+    config.add_route('Star_Alliance', '/Star_Alliance')                           #sign out (this gets redirected back to 'home' or '/'
+    config.add_route('Sky_Team', '/Sky_Team')                           #sign out (this gets redirected back to 'home' or '/'
     config.add_route('test_page', '/test_page')                           #sign out (this gets redirected back to 'home' or '/'
     config.add_route('pointtracker', '/pointtracker')                   #main info page with account data
     config.set_request_factory(PTRequest)                               #Hook in our custom Request Object
@@ -58,6 +61,9 @@ def application(environ, start_response):
     config.add_route('home', '/')                                       #sign in page
     config.add_route('Sign_Out', '/sign_out')                           #sign out (this gets redirected back to 'home' or '/'
     config.add_route('FAQ', '/FAQ')                           #sign out (this gets redirected back to 'home' or '/'
+    config.add_route('One_World', '/One_World')                           #sign out (this gets redirected back to 'home' or '/'
+    config.add_route('Star_Alliance', '/Star_Alliance')                           #sign out (this gets redirected back to 'home' or '/'
+    config.add_route('Sky_Team', '/Sky_Team')                           #sign out (this gets redirected back to 'home' or '/'
     config.add_route('test_page', '/test_page')                           #sign out (this gets redirected back to 'home' or '/'
     config.add_route('pointtracker', '/pointtracker')                   #main info page with account data
     config.set_request_factory(PTRequest)                               #Hook in our custom Request Object

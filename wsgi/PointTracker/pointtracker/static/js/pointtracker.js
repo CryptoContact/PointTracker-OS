@@ -250,35 +250,80 @@ function Display_PointTracker_Account  () {
         tablecontents += '<table class="table table-striped table-bordered">';
         tablecontents += "<thead>";
         tablecontents += "<tr>";
+        tablecontents += "<th></th>";                                                   //Airline logo
         tablecontents += "<th>Program</th>";
+        tablecontents += "<th></th>";                                            // Partner Alliance Logo
         tablecontents += "<th style='width: 190px;'>Account</th>";
+        tablecontents += "<th>Partner</th>";                                            // Partner Alliance Logo
         tablecontents += "<th>Balance</th>";
         tablecontents += "<th>Last Activity</th>";
         tablecontents += "<th>Expiration</th>";
         tablecontents += "<th>Last Updated</th>";
-        tablecontents += "<th></th>";
+//        tablecontents += "<th></th>";
         tablecontents += "</tr>";
         tablecontents += "</thead>";
+
+
         tablecontents += "<tbody>";
-
-
         for (var program_account_index =0;   program_account_index<sub_account['SA_program_accounts'].length;   program_account_index++) {
 
             program_account = sub_account['SA_program_accounts'][program_account_index];
 
-            tablecontents += "<tr>";
-            tablecontents += "<td>"+ program_account['RP_name'];
 
-            if (program_account['RP_partner'] == 'One World') {
-                tablecontents += '<img src="static/graphics/one_world_small.png" alt="airline partner" align="right" height="25" width="25" >'
+
+            tablecontents += "<tr>";
+
+            tablecontents += "<td>";
+            if (program_account['RP_name'] == 'American Airlines') {
+                tablecontents += '<a href = "http://www.aa.com/homePage.do"><img src="static/graphics/american_airlines_logo.png" alt="american_airlines logo" align="left" height="25" width="25" ></a>'
             }
-            if (program_account['RP_partner'] == 'Star Alliance') {
-                tablecontents += '<img src="static/graphics/star_alliance_small.png" alt="airline partner" align="right" height="25" width="25" >';
+            if (program_account['RP_name'] == 'United Airlines') {
+                tablecontents += '<a href = "http://www.united.com/web/en-US/default.aspx?root=1"><img src="static/graphics/united_airlines_logo.png" alt="united_airlines logo" align="center" height="25" width="25" ></a>';
             }
-            if (program_account['RP_partner'] == 'Sky Team') {
-                tablecontents += '<img src="static/graphics/sky_team_small.png" alt="airline partner" align="right" height="25" width="25" >';
+            if (program_account['RP_name'] == 'Delta Airlines') {
+                tablecontents += '<a href = "http://www.delta.com/"><img src="static/graphics/delta_airlines_logo.png" alt="delta_airlines logo" align="center" height="25" width="25" ></a>';
+            }
+            if (program_account['RP_name'] == 'US Airways') {
+                tablecontents += '<a href = "http://www.usairways.com/default.aspx"><img src="static/graphics/us_airways_logo.png" alt="us_airways logo" align="right" height="25" width="25" ></a>'
+            }
+            if (program_account['RP_name'] == 'British Airways') {
+                tablecontents += '<a href = "http://www.britishairways.com/travel/home/public/en_us"><<img src="static/graphics/british_airways_logo.png" alt="british_airways logo" align="center" height="25" width="25" ></a>';
+            }
+            if (program_account['RP_name'] == 'Eva Air') {
+                tablecontents += '<a href = "http://www.evaair.com/"><img src="static/graphics/eva_air_logo.png" alt="eva_air logo" align="center" height="25" width="25" ></a>';
             }
             tablecontents += "</td>";
+
+
+
+            tablecontents += "<td>"+ program_account['RP_name'];
+
+//            if (program_account['RP_partner'] == 'One World') {
+//                tablecontents += '<img src="static/graphics/one_world_small.png" alt="airline partner" align="right" height="25" width="25" >'
+//            }
+//            if (program_account['RP_partner'] == 'Star Alliance') {
+//                tablecontents += '<img src="static/graphics/star_alliance_small.png" alt="airline partner" align="right" height="25" width="25" >';
+//            }
+//            if (program_account['RP_partner'] == 'Sky Team') {
+//                tablecontents += '<img src="static/graphics/sky_team_small.png" alt="airline partner" align="right" height="25" width="25" >';
+//            }
+            tablecontents += "</td>";
+
+
+
+            tablecontents += "<td>";
+            if (program_account['RP_partner'] == 'One World') {
+                tablecontents += '<a href = "/One_World"><img src="static/graphics/one_world_small.png" alt="airline partner" align="center" height="25" width="25" ></a>';
+            }
+            if (program_account['RP_partner'] == 'Star Alliance') {
+                tablecontents += '<a href = "/Star_Alliance"><img src="static/graphics/star_alliance_small.png" alt="airline partner" align="center" height="25" width="25" ></a>';
+            }
+            if (program_account['RP_partner'] == 'Sky Team') {
+                tablecontents += '<a href = "/Sky_Team"><img src="static/graphics/sky_team_small.png" alt="airline partner" align="center" height="25" width="25" ></a>';
+            }
+            tablecontents += "</td>";
+
+
 
 
             tablecontents += "<td>"+ program_account['RP_account_name'] + "</br>" + program_account['RP_account_num']   +"</td>";
