@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="" />
+    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" afterPath="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
+    </list>
     <ignored path="PointTracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="american.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="american.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/american.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="51" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.09308886">
+            <state line="60" column="51" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -66,7 +68,7 @@
       <file leaf-file-name="pointtracker.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="3764" selection-end="3764" vertical-scroll-proportion="41.846153">
+            <state line="68" column="0" selection-start="3764" selection-end="3764" vertical-scroll-proportion="74.53846">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -92,10 +94,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pointtracker.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="37" selection-start="10691" selection-end="10691" vertical-scroll-proportion="-13.148149">
+            <state line="306" column="0" selection-start="13717" selection-end="13717" vertical-scroll-proportion="0.5703812">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -123,7 +125,6 @@
         <option value="$PROJECT_DIR$/pointtracker/__init__.py" />
         <option value="$PROJECT_DIR$/pointtracker/static/css/pointtracker.css" />
         <option value="$PROJECT_DIR$/pointtracker/templates/index.html" />
-        <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
         <option value="$PROJECT_DIR$/pointtracker/templates/pointtracker.html" />
         <option value="$PROJECT_DIR$/pointtracker/PointTracker.py" />
         <option value="$PROJECT_DIR$/pointtracker/Globalvars.py" />
@@ -132,6 +133,7 @@
         <option value="$PROJECT_DIR$/pointtracker/templates/One_World.html" />
         <option value="$PROJECT_DIR$/pointtracker/templates/Sky_Team.html" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/american.py" />
+        <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
       </list>
     </option>
   </component>
@@ -740,42 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="37" selection-start="10691" selection-end="10691" vertical-scroll-proportion="-13.148149">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="3764" selection-end="3764" vertical-scroll-proportion="41.846153">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="0" selection-start="1642" selection-end="1642" vertical-scroll-proportion="-5.230769">
@@ -829,9 +795,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/american.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="51" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.09308886">
+        <state line="60" column="51" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="3764" selection-end="3764" vertical-scroll-proportion="74.53846">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="306" column="0" selection-start="13717" selection-end="13717" vertical-scroll-proportion="0.5703812">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

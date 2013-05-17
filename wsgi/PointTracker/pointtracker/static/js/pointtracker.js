@@ -299,7 +299,7 @@ function Display_PointTracker_Account  () {
                 if (program_account['RP_name'] == 'British Airways') {
                     tablecontents += '<a href = "http://www.britishairways.com/travel/home/public/en_us"><img src="static/graphics/british_airways_logo.png" alt="british_airways logo" align="center" height="25" width="25" ></a>';
                 }
-                if (program_account['RP_name'] == 'Eva Air') {
+                if (program_account['RP_name'] == 'EVA Air') {
                     tablecontents += '<a href = "http://www.evaair.com/"><img src="static/graphics/eva_air_logo.png" alt="eva_air logo" align="center" height="25" width="25" ></a>';
                 }
                 tablecontents += "</td>";
