@@ -254,7 +254,6 @@ function Display_PointTracker_Account  () {
         tablecontents += "<th>Program</th>";
         tablecontents += "<th></th>";                                            // Partner Alliance Logo
         tablecontents += "<th style='width: 190px;'>Account</th>";
-        tablecontents += "<th>Partner</th>";                                            // Partner Alliance Logo
         tablecontents += "<th>Balance</th>";
         tablecontents += "<th>Last Activity</th>";
         tablecontents += "<th>Expiration</th>";
