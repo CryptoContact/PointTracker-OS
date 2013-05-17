@@ -29,7 +29,7 @@ def server_view0(request):
         print ('Incoming URL = ',request.url)
         redirect_url= 'https' + request.url[4:]
         print ('Redirecting to :', redirect_url)
-        return HTTPFound(redirect_url)                                         #Redirect traffic to https
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
 
     if 'PointTracker_Login' in request.cookies:                                             #is the cookie set?
         url = request.route_url('pointtracker')                                             #cookie was set so redirect
