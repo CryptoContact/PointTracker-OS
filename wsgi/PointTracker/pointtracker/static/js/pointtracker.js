@@ -274,7 +274,7 @@ function Display_PointTracker_Account  () {
 
             tablecontents += "<td>";
             if (program_account['RP_name'] == 'American Airlines') {
-                tablecontents += '<a href = "http://www.aa.com/homePage.do"><img src="static/graphics/american_airlines_logo.png" alt="american_airlines logo" align="left" height="25" width="25" ></a>'
+                tablecontents += '<a href = "http://www.aa.com/homePage.do"><img src="static/graphics/american_airlines_logo.png" alt="american_airlines logo" align="center" height="25" width="25" ></a>'
             }
             if (program_account['RP_name'] == 'United Airlines') {
                 tablecontents += '<a href = "http://www.united.com/web/en-US/default.aspx?root=1"><img src="static/graphics/united_airlines_logo.png" alt="united_airlines logo" align="center" height="25" width="25" ></a>';
@@ -283,7 +283,7 @@ function Display_PointTracker_Account  () {
                 tablecontents += '<a href = "http://www.delta.com/"><img src="static/graphics/delta_airlines_logo.png" alt="delta_airlines logo" align="center" height="25" width="25" ></a>';
             }
             if (program_account['RP_name'] == 'US Airways') {
-                tablecontents += '<a href = "http://www.usairways.com/default.aspx"><img src="static/graphics/us_airways_logo.png" alt="us_airways logo" align="right" height="25" width="25" ></a>'
+                tablecontents += '<a href = "http://www.usairways.com/default.aspx"><img src="static/graphics/us_airways_logo.png" alt="us_airways logo" align="center" height="25" width="25" ></a>'
             }
             if (program_account['RP_name'] == 'British Airways') {
                 tablecontents += '<a href = "http://www.britishairways.com/travel/home/public/en_us"><img src="static/graphics/british_airways_logo.png" alt="british_airways logo" align="center" height="25" width="25" ></a>';
