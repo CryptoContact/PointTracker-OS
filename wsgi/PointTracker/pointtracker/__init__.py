@@ -1,3 +1,6 @@
+import os,sys
+sys.path.append(os.path.dirname(__file__))
+
 from wsgiref.simple_server import make_server
 from pyramid.mako_templating import renderer_factory as mako_factory
 from pyramid.config import Configurator
@@ -6,7 +9,6 @@ from auth import authentication_policy, authorization_policy
 #from auth import Root
 from PointTracker import Init_App
 import Globalvars
-import os
 
 
 
