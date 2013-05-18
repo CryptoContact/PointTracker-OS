@@ -264,10 +264,10 @@ function Display_PointTracker_Account  () {
             tablecontents += '<table class="table table-striped table-bordered">';
             tablecontents += "<thead>";
             tablecontents += "<tr>";
-            tablecontents += "<th></th>";                                                   //Airline logo
+            tablecontents += "<th style='min-width: 25px;'></th>";                                                   //Airline logo
             tablecontents += "<th>Program</th>";
-            tablecontents += "<th></th>";                                            // Partner Alliance Logo
-            tablecontents += "<th style='width: 190px;'>Account</th>";
+            tablecontents += "<th style='min-width: 25px;'></th>";                                            // Partner Alliance Logo
+            tablecontents += "<th style='width: 170px;'>Account</th>";
             tablecontents += "<th>Balance</th>";
             tablecontents += "<th>Last Activity</th>";
             tablecontents += "<th>Expiration</th>";
