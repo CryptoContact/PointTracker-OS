@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/PointTracker.py" afterPath="$PROJECT_DIR$/pointtracker/PointTracker.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/__init__.py" afterPath="$PROJECT_DIR$/pointtracker/__init__.py" />
     </list>
     <ignored path="PointTracker.iws" />
@@ -31,19 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="__init__.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pointtracker/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="2" selection-start="4674" selection-end="4674" vertical-scroll-proportion="0.0">
+            <state line="2" column="38" selection-start="96" selection-end="96" vertical-scroll-proportion="0.05074627">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PointTracker.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PointTracker.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="8" selection-start="1658" selection-end="1658" vertical-scroll-proportion="0.41400304">
+            <state line="4" column="20" selection-start="179" selection-end="221" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,8 +75,8 @@
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/american.py" />
         <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
         <option value="$PROJECT_DIR$/pointtracker/templates/pointtracker.html" />
-        <option value="$PROJECT_DIR$/pointtracker/__init__.py" />
         <option value="$PROJECT_DIR$/pointtracker/PointTracker.py" />
+        <option value="$PROJECT_DIR$/pointtracker/__init__.py" />
       </list>
     </option>
   </component>
@@ -591,16 +590,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/__init__.py">
+    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="2" selection-start="4674" selection-end="4674" vertical-scroll-proportion="0.0">
+        <state line="4" column="20" selection-start="179" selection-end="221" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
+    <entry file="file://$PROJECT_DIR$/pointtracker/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="8" selection-start="1658" selection-end="1658" vertical-scroll-proportion="0.41400304">
+        <state line="2" column="38" selection-start="96" selection-end="96" vertical-scroll-proportion="0.05074627">
           <folding />
         </state>
       </provider>

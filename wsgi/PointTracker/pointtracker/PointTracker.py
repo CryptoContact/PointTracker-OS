@@ -49,7 +49,7 @@ def Init_App():
 
         Globalvars.DEVELOPMENT = True
         Globalvars.DEPLOY = False
-        
+
         Globalvars.AES_Key = mtk.read_file("AES_Key.dng")
         Globalvars.Saltstring = mtk.read_file("Saltstring.dng")
         mongo_con = Connection('localhost', 27017)
