@@ -234,7 +234,7 @@ function Display_PointTracker_Account  () {
     PT_account = Get_PointTracker_Account();
 
     $("#WelcomeName").remove();                             //remove if already there
-    $("#Welcome_User_Tag").append('<div id="WelcomeName" style="float: left; width: 32&#37; text-align: left;">' + 'Welcome ' + PT_account['PT_account_firstname'] +' '+ PT_account['PT_account_lastname']  + '</div>');   // put new Welcome name there
+    $("#Welcome_User_Tag").append('Welcome, ' + PT_account['PT_account_firstname'] +' '+ PT_account['PT_account_lastname']);   // put new Welcome name there
 
     for (var sub_account_index =0; sub_account_index<PT_account['PT_sub_accounts'].length;sub_account_index++) {
 
@@ -272,7 +272,7 @@ function Display_PointTracker_Account  () {
             tablecontents += "<th>Last Activity</th>";
             tablecontents += "<th>Expiration</th>";
             tablecontents += "<th>Last Updated</th>";
-    //        tablecontents += "<th></th>";
+            tablecontents += "<th></th>";
             tablecontents += "</tr>";
             tablecontents += "</thead>";
 
