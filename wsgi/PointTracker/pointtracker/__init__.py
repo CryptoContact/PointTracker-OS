@@ -88,7 +88,7 @@ if __name__ == '__main__':
         server = make_server('0.0.0.0', 6543, app)                      #Serve from our local server
     else:
         server = make_server(os.environ['OPENSHIFT_INTERNAL_IP'], int(os.environ['OPENSHIFT_INTERNAL_IP']), app)    #Serve from the Openshift website
-        server.environ['wsgi.url_scheme'] = 'https'                     #https://github.com/surfly/gevent/issues/59  (Doesn't work now)
+#        server.environ['wsgi.url_scheme'] = 'https'                     #https://github.com/surfly/gevent/issues/59  (Doesn't work now)
 #        server = make_server(os.environ['OPENSHIFT_INTERNAL_IP'], 8080, app)    #Serve from the Openshift website when manually started with Pserve
 #        server = make_server('127.11.64.1', 8080, app)
     server.serve_forever()
