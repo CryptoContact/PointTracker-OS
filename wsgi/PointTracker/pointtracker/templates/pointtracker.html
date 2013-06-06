@@ -75,7 +75,17 @@
                   <div class="navbar-inner">
                         <ul class="nav">
                           <li class="active"><a href="#">Home</a></li>
-                          <li><a href="javascript:Add_Sub_Account()">Add Sub Account</a></li>
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Action</a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="javascript:Add_Sub_Account()">Add Sub Account</a></li>
+                                  <li class="divider"></li>
+                                  <li><a href="javascript:Send_PointTracker_Account()">Send Account</a></li>
+                                  <li><a href="#Delete_PT_Account_Modal" data-toggle="modal">Delete Account</a></li>
+##                                  <li><a href="#Change_PT_Account_Password_Modal" data-toggle="modal">Change Password</a></li>
+                                  <li><a href="javascript:Change_PT_Account_Password()">Change Password</a></li>
+                              </ul>
+                          </li>
                           <li><a href="/FAQ">FAQ</a></li>
                         </ul>
                         <ul class='nav pull-right'>
@@ -88,7 +98,8 @@
 ##Update PointTracker Account Button
 
                 <div style="text-align: center">
-                    <a href="#Update_PointTracker_Account" onclick = "Update_PointTracker_Account()" class="btn btn-large btn-primary">Update PointTracker Account</a>
+                    <div id="Update_PointTracker_Account_Button_Tag"></div>
+##                    <a href="#Update_PointTracker_Account" onclick = "Update_PointTracker_Account()" class="btn btn-large btn-primary">Update PointTracker Account</a>
                     <br>
                     <br>
 ##                    <a href="#" onclick = "Add_Sub_Account()" class="btn btn btn-success">Add PointTracker Sub Account</a>
@@ -155,7 +166,7 @@
                   <p>Please enter the name of the new Sub Account</p>
                   <br>
                   <label for="Sub_Account_Name"></label>
-                  <input type="text" placeholder="Type a name"  id="Sub_Account_Name"  title="Input a Sub Account Name" onkeydown="if (event.keyCode == 13) document.getElementById('SA_Confirm_Modal_Button').click()" >
+                  <input type="text" placeholder="Type a name"  id="Sub_Account_Name"  title="Input a Sub Account Name" onkeydown="if (event.keyCode == 13) document.getElementById('ASA_Confirm_Modal_Button').click()" >
                 </div>
 
                 <div class="modal-footer">
@@ -391,6 +402,147 @@
 
 
 
+
+
+
+
+
+
+
+##Send Account Modal
+##
+##
+              <div class="modal hide fade" id="Send_Account_Modal" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-header" style="text-align: center">
+                        <h3>Send PointTracker Account</h3>
+                    </div>
+
+                    <div class="modal-body" style="text-align: center">
+                        <p>Send a copy of your PointTracker account data to:</p>
+                        <br>
+                        <form name="Send_Account_Form"  style="text-align:center">
+                            <table>
+                                    <tr>
+                                        <td>
+                                            <label for="SPT_email"><input type="text" name="email" id="SPT_email" placeholder="johndoe@email.com"></label>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </form>
+                        <div id="SPT_Send_Account_Verify_Tag1"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div id="SPT_Send_Account_Verify_Tag2"></div>
+
+##                        <button id="SPT_Send_Account_Submit_Modal_Button" class="btn btn-primary" >Send</button>
+##                        <button class="btn" data-dismiss="modal">Cancel</button>
+                    </div>
+              </div>
+
+
+
+##        #                                                <td>
+##                                                    <button type="button" value="0" class="btn" data-toggle="button">Email</button>
+####                                                    <label><input type="radio" name="send_where">Email</label>
+##                                                </td>
+##                                                <td>
+##                                                    <label><input type="text" placeholder="johndoe@email.com"></label>
+##                                                </td>
+##                                            </tr>
+##                                            <tr>
+##                                                <td>
+##                                                    <button type="button" value="1" class="btn" data-toggle="button">Phone</button>
+####                                                    <label><input type="radio" name="send_where">Phone</label>
+##                                                </td>
+##                                                <td>
+##                                                    <label><input type="text" placeholder="XXX-XXX-XXXX"></label>
+##                                                </td>
+##                                            </tr>
+
+
+
+
+
+
+
+##Delete_PT_Account Modal
+##
+##
+            <div class="modal hide fade" id="Delete_PT_Account_Modal" data-keyboard="false" data-backdrop="static">
+                <div class="modal-header" style="text-align: center">
+                   <h3>Delete PointTracker Account</h3>
+                </div>
+
+                <div class="modal-body" style="text-align: center">
+                  <p>Are you sure?</p>
+                  <p>This will delete your PointTracker account and remove all data from our servers.</p>
+                  <p>This action is permanent.</p>
+                </div>
+                       <form name="Delete_PT_Account_Form"  style="text-align:left">
+                                    <table >
+                                            <tr>
+                                                <td>Username:</td>
+                                                <td><label for="DPT_username"></label><input type="text"  name="DPT_username" id="DPT_username" title="Input username" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Password:</td>
+                                                <td><label for="DPT_password"></label><input type="password"  name="DTP_password" id="DPT_password" title="Input a password" ></td>
+                                            </tr>
+                                    </table>
+                        </form>
+                <div class="modal-footer">
+                  <button  id="DPT_Delete_Modal_Button" class="btn btn-danger"  data-dismiss="modal">Delete</button>
+                  <button class="btn" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+##Change_PT_Account_Password Modal
+##
+##
+            <div class="modal hide fade" id="Change_PT_Account_Password_Modal" data-keyboard="false" data-backdrop="static">
+                <div class="modal-header" style="text-align: center">
+                   <h3>Change PointTracker Account Password</h3>
+                </div>
+
+                <div class="modal-body" style="text-align: center">
+                       <form name="Change_PT_Account_Password_Form"  style="text-align:left">
+                                    <table >
+                                            <tr>
+                                                <td>Username:</td>
+                                                <td><label for="CPT_username"></label><input class ="input-medium" type="text"  name="password" id="CPT_username" title="Input a username" onkeydown="if (event.keyCode == 13) document.getElementById('CPT_Submit_Modal_Button').click()" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Password:</td>
+                                                <td><label for="CPT_password"></label><input class ="input-medium" type="password"  name="password" id="CPT_password" title="Input a password" onkeydown="if (event.keyCode == 13) document.getElementById('CPT_Submit_Modal_Button').click()" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td>New Password:</td>
+                                                <td><label for="CPT_new_password"></label><input class ="input-medium" type="password"  name="password" id="CPT_new_password" title="Input a password" onkeydown="if (event.keyCode == 13) document.getElementById('CPT_Submit_Modal_Button').click()" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Confirm New Password:</td>
+                                                <td><label for="CPT_new_password_confirm"></label><input class ="input-medium" type="password"  name="password" id="CPT_new_password_confirm" title="Input a password" onkeydown="if (event.keyCode == 13) document.getElementById('CPT_Submit_Modal_Button').click()"></td>
+                                            </tr>
+                                    </table>
+                        </form>
+                        <div id="Change_PT_Account_Password_Verify_Tag1"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <div id="Change_PT_Account_Password_Verify_Tag2"></div>
+                </div>
+##                  <button  id="CPT_Submit_Modal_Button" class="btn btn-primary">Change</button>
+##                  <button class="btn" data-dismiss="modal">Cancel</button>
+##                </div>
+            </div>
 
 
 

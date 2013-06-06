@@ -10,6 +10,12 @@ requires = [
     'pyramid',
     'pyramid_debugtoolbar',
     'waitress',
+    'requests',
+    'Beautifulsoup4',
+    'pymongo',
+    'pycrypto',
+    'pytz',
+    'lxml'
     ]
 
 setup(name='PointTracker',

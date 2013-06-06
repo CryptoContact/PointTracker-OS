@@ -38,6 +38,9 @@ import hashlib
 import Globalvars
 import sys,os
 
+#email modules
+import smtplib
+from email.mime.text import MIMEText
 
 
 def Init_App():
@@ -173,10 +176,82 @@ def Valid_PointTracker_Account(_id):
 
 
 
+def Change_PointTracker_Account_Password(PT_obj):
+
+    hash = hashlib.sha256()
+    string = PT_obj['username']  + Globalvars.Saltstring + PT_obj['password']
+    encode_string = string.encode('utf-8')
+    hash.update(encode_string)
+    _id = hash.hexdigest()                                                          # old _id
+
+    if Valid_PointTracker_Account(_id):
+        PT_account = Get_PointTracker_Account(_id)                                           ##Current account info
+
+        hash = hashlib.sha256()
+        string = PT_obj['username']  + Globalvars.Saltstring + PT_obj['new_password']  #create new hash with new password
+        encode_string = string.encode('utf-8')
+        hash.update(encode_string)
+        new_id = hash.hexdigest()
+
+        PT_account['_id'] = new_id
+        PT_database.insert({'_id':PT_account['_id'],'PT_account':PT_account})    ## Add the PT_account with new _id
+        PT_database.remove({'_id':_id})                                           ## Remove the old PT_account with old _id
+        return True
+    else:
+        return False
 
 
 
 
+#def Send_PointTracker_Account(email):
+#    msg = MIMEText("This is a test PointTracker email")
+#
+#    # me == the sender's email address
+#    # you == the recipient's email address
+#    msg['Subject'] = 'PointTracker Account Update'
+#    msg['From'] = 'PointTracker@gmail.com'
+#    msg['To'] = 'mrfatboy@sbcglobal.net'
+#
+#    # Send the message via our own SMTP server, but don't include the
+#    # envelope header.
+##    s = smtplib.SMTP('localhost')
+#    s = smtplib.SMTP('127.0.0.1')
+#    s.sendmail(msg['From'], [msg['To']], msg.as_string())
+#    s.quit()
+#
+
+
+
+def Send_PointTracker_Account(email):
+
+#    from_addr = 'PointTracker@gmail.com'
+    from_addr = 'thepointtracker@gmail.com'
+    to_addr_list = [email]
+    cc_addr_list = []
+    message = 'This is a PointTracker test email'
+    subject = 'PointTracker Account Update'
+    smtpserver='smtp.gmail.com:587'
+
+
+    header  = 'From: %s\n' % from_addr
+    header += 'To: %s\n' % ','.join(to_addr_list)
+    header += 'Cc: %s\n' % ','.join(cc_addr_list)
+    header += 'Subject: %s\n\n' % subject
+    message = header + message
+
+    server = smtplib.SMTP(smtpserver)
+    server.starttls()
+    server.login('thepointtracker','f47fantasma')
+
+    status = True                                           #email sent  with no erros
+
+    try:
+        problems = server.sendmail(from_addr, to_addr_list, message)
+    except Exception as e:
+        status = False
+
+    server.quit()
+    return status
 
 
 

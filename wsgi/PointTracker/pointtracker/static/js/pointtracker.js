@@ -229,12 +229,23 @@ function Display_PointTracker_Account  () {
     var program_account;
     var sub_account;
     var tablecontents ='';
-
+    var $Update_PointTracker_Account_Button_Tag = '#Update_PointTracker_Account_Button_Tag';
 
     PT_account = Get_PointTracker_Account();
 
-    $("#WelcomeName").remove();                             //remove if already there
-    $("#Welcome_User_Tag").append('Welcome, ' + PT_account['PT_account_firstname'] +' '+ PT_account['PT_account_lastname']);   // put new Welcome name there
+    $("#Welcome_User_Tag").replaceWith('Welcome, ' + PT_account['PT_account_firstname'] +' '+ PT_account['PT_account_lastname']);   // put new Welcome name there
+    $($Update_PointTracker_Account_Button_Tag).empty();
+
+    if (Any_RP_accounts(PT_account)) {
+        $($Update_PointTracker_Account_Button_Tag).append('<a href="#Update_PointTracker_Account" onclick = "Update_PointTracker_Account()" class="btn btn-large btn-primary">Update PointTracker Account</a>')
+    }
+
+    if (PT_account['PT_sub_accounts'].length == 0) {
+        tablecontents += '<br>';
+        tablecontents += '<div style="text-align: center">';
+        tablecontents += '<img src="static/graphics/No_sub_account_girl.png" alt="No_sub_account_girl">';
+        tablecontents += '<div>';
+    }
 
     for (var sub_account_index =0; sub_account_index<PT_account['PT_sub_accounts'].length;sub_account_index++) {
 
@@ -255,10 +266,12 @@ function Display_PointTracker_Account  () {
             tablecontents += '<img src="static/graphics/red_warning_sign_small.png" alt="Warning Sign"  height="30" width="28" >' + '<font color = "#ff0000"> Please add some Reward Programs</font>';
         }
 
+
+
         if (PT_account['PT_sub_accounts'].length == 1 && sub_account['SA_program_accounts'].length == 0) {
             tablecontents += '<br>';
             tablecontents += '<div style="text-align: center">';
-            tablecontents += '<img src="static/graphics/welcome_girl.png" alt="Welcom_girl">';
+            tablecontents += '<img src="static/graphics/welcome_girl.png" alt="Welcome_girl">';
             tablecontents += '<div>';
         } else {
             tablecontents += '<table class="table table-striped table-bordered">';
@@ -383,6 +396,28 @@ function Display_PointTracker_Account  () {
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function Any_RP_accounts (PT_account) {
+    var answer = false;
+    var sub_account;
+//    var program_account;
+
+        for (var sub_account_index =0; sub_account_index<PT_account['PT_sub_accounts'].length;sub_account_index++) {
+                sub_account = PT_account['PT_sub_accounts'][sub_account_index];
+                for (var program_account_index =0;   program_account_index<sub_account['SA_program_accounts'].length;   program_account_index++) {
+                    if (sub_account['SA_program_accounts'].length >0 ) {
+                        answer = true;
+                    }
+                }
+        }
+    return answer;
+}
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -391,11 +426,11 @@ function Display_PointTracker_Account  () {
 function Add_Sub_Account() {
     var $Add_Sub_Account_Modal = "#Add_Sub_Account_Modal";
 
-    $('#Sub_Account_Name_Modal').val('');                                               //clear out name in text box
+    $('#Sub_Account_Name').val('');                                               //clear out name in text box
 
     $($Add_Sub_Account_Modal).modal('show');
     $($Add_Sub_Account_Modal).on('shown', function() {
-        $("#Sub_Account_Name_Modal").focus();                                           //Bring focus to the Sub account name input field when modal opens
+        $("#Sub_Account_Name").focus();                                           //Bring focus to the Sub account name input field when modal opens
     });
 }
 
@@ -408,15 +443,16 @@ function Add_Sub_Account() {
 $(document).on("click","#ASA_Confirm_Modal_Button", function Confirm_Sub_Account() {
 
     var SA_name = $('#Sub_Account_Name').val();                               // Get the inputted name value for the new SA_account
-
-    $.ajax({
-        'async': true,
-        'data': {'SA_name':SA_name,'_id':Current_id},
-        'url': 'Add_Sub_Account_View',                                              // Call server to add the sub account
-        'success': function () {
-            Display_PointTracker_Account();                                         // Refresh screen with sub account
-        }
-    });
+    if (SA_name != '') {                                                      // don't add if user didnt' add a name
+             $.ajax({
+            'async': true,
+            'data': {'SA_name':SA_name,'_id':Current_id},
+            'url': 'Add_Sub_Account_View',                                              // Call server to add the sub account
+            'success': function () {
+                Display_PointTracker_Account();                                         // Refresh screen with sub account
+            }
+        });
+    }
 });
 
 
@@ -791,6 +827,214 @@ $(document).on("click","#DRP_Delete_Modal_Button", function () {
 
 
 
+
+
+
+//Changes password to master PointTracker Account
+//
+function Change_PT_Account_Password() {
+    var $Change_PT_Account_Password_Verify_Tag2 = "#Change_PT_Account_Password_Verify_Tag2";                // Insert Button modal configuration in html here
+    var $Change_PT_Account_Password_Modal = "#Change_PT_Account_Password_Modal";
+
+    $('#CPT_username').val('');                                                             // clear out for new input
+    $('#CPT_password').val('');                                                             // clear out for new input
+    $('#CPT_new_password').val('');                                                             // clear out for new input
+    $('#CPT_new_password_confirm').val('');                                       // Set default for new input
+
+// Setup Modal Button configuration
+    $($Change_PT_Account_Password_Verify_Tag2).empty();
+    $($Change_PT_Account_Password_Verify_Tag2).append('<button id="CPT_Submit_Modal_Button" class="btn btn-info">Submit</button>');
+    $($Change_PT_Account_Password_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
+
+    $(".CPT_alert").empty();                                                 // Hide any alerts from previous use of Modal
+
+    $($Change_PT_Account_Password_Modal).modal('show');
+
+    $($Change_PT_Account_Password_Modal).on('shown', function() {                   // Put focus on Reward Program dropdown menu
+        $("#CPT_username").focus();
+    });
+}
+
+
+
+// Change PointTracker Account Password
+//
+$(document).on("click","#CPT_Submit_Modal_Button", function () {
+
+    var PT_obj = {};
+    var username;
+    var password;
+    var new_password;
+    var new_password_confirm;
+
+    var $username = "#CPT_username";
+    var $password = "#CPT_password";
+    var $new_password = "#CPT_new_password";
+    var $new_password_confirm = "#CPT_new_password_confirm";
+    var $CPT_alert = '.CPT_alert';
+
+    var $Change_PT_Account_Password_Verify_Tag1 = "#Change_PT_Account_Password_Verify_Tag1";  // Insert 'refreshing' animation and airline program in html here
+    var $Change_PT_Account_Password_Verify_Tag2 = "#Change_PT_Account_Password_Verify_Tag2";  // Insert Modal button configuration here
+
+    username = $($username).val();
+    password = $($password).val();
+    new_password = $($new_password).val();
+    new_password_confirm = $($new_password_confirm).val();
+
+
+
+    $($CPT_alert).empty();                                            // clear everything that has class error (.error)
+    $($Change_PT_Account_Password_Verify_Tag1).empty();                          // also clear out this tag for next response
+
+    if (username == ''){
+        $($username).focus();
+        $($username).after('<span class="CPT_alert"><font color = "#ff0000"> Enter a username</font></span>');
+        return;              //no username
+    }
+    if (password == ''){
+        $($password).focus();
+        $($password).after('<span class="CPT_alert"><font color = "#ff0000"> Enter a password</font></span>');
+        return;              //no old password
+    }
+    if (new_password == ''){
+        $($new_password).focus();
+        $($new_password).after('<span class="CPT_alert"><font color = "#ff0000"> Enter new password</font></span>');
+        return;              //no new password
+    }
+    if (new_password.length <  8 || new_password.length > 32) {
+        $($new_password).focus();
+        $($new_password).after('<span class="CPT_alert"><font color = "#ff0000"> Must be between 8 and 32 chars.</font></span>');
+        return;              //New password is wrong size
+    }
+    if (new_password_confirm == ''){
+        $($new_password_confirm).focus();
+        $($new_password_confirm).after('<span class="CPT_alert"><font color = "#ff0000"> Enter a password</font></span>');
+        return;              //no new_confirm password
+    }
+    if (new_password != new_password_confirm){
+        $($new_password_confirm).focus();
+        $($new_password_confirm).after('<span class="CPT_alert"><font color = "#ff0000"> Passwords do not match</font></span>');
+        return;              //passwords do not match
+    }
+
+    $($CPT_alert).empty();                                            // clear everything that has class error (.error)
+
+    PT_obj['username'] = $($username).val();
+    PT_obj['password'] = $($password).val();
+    PT_obj['new_password'] = $($new_password).val();
+
+
+    $.ajax({
+        'async': true,
+        'type':'post',
+        'data': PT_obj,                                                           // call the correct program scraper thru the view callable by sending it's dictionary
+        'url': 'Change_PointTracker_Account_Password_View',
+        'success': function (status) {                               // call backback function return new updated program_account
+            $($Change_PT_Account_Password_Verify_Tag1).empty();
+            $($Change_PT_Account_Password_Verify_Tag2).empty();
+            if (status == true) {
+                $($Change_PT_Account_Password_Verify_Tag1).append('<div class="CPT_alert" style ="text-align:center; color:#7fba00"><br>Your PointTracker account password has been changed.</div>');
+                $($Change_PT_Account_Password_Verify_Tag2).append('<button id="CPT_OK_Button" class="btn btn-info" data-dismiss="modal">OK</button>');
+                $('#CPT_OK_Button').focus();
+            }
+            else {                      // Incorrect username or password
+                $($username).focus();
+                $($Change_PT_Account_Password_Verify_Tag1).append('<div class="CPT_alert" style ="text-align:center; color:#ff0000"><br>Login error. Incorrect Username and/or Password.</div>');
+                $($Change_PT_Account_Password_Verify_Tag2).append('<button id="CPT_Submit_Modal_Button" class="btn btn-info">Submit</button>');
+                $($Change_PT_Account_Password_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
+            }
+        }
+    });
+});
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Send PointTracker Account
+//
+function Send_PointTracker_Account() {
+    var $SPT_Send_Account_Verify_Tag2 = "#SPT_Send_Account_Verify_Tag2";                // Insert Button modal configuration in html here
+    var $Send_Account_Modal = "#Send_Account_Modal";
+
+    $('#SPT_email').val('');                                                             // clear out for new input
+
+// Setup Modal Button configuration
+    $($SPT_Send_Account_Verify_Tag2).empty();
+    $($SPT_Send_Account_Verify_Tag2).append('<button id="SPT_Send_Account_Modal_Button" class="btn btn-info">Send</button>');
+    $($SPT_Send_Account_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
+
+    $(".SPT_alert").empty();                                                 // Hide any alerts from previous use of Modal
+
+    $($Send_Account_Modal).modal('show');
+
+    $($Send_Account_Modal).on('shown', function() {                   // Put focus on Reward Program dropdown menu
+        $("#SPT_email").focus();
+    });
+}
+
+
+
+
+
+
+
+
+
+// Send PointTracker Account
+//
+$(document).on("click","#SPT_Send_Account_Modal_Button", function () {
+
+    var PT_obj = {};
+    var email;
+
+    var $email = "#SPT_email";
+    var $SPT_alert = '.SPT_alert';
+
+    var $SPT_Send_Account_Verify_Tag1 = "#SPT_Send_Account_Verify_Tag1";  // Insert 'refreshing' animation and airline program in html here
+    var $SPT_Send_Account_Verify_Tag2 = "#SPT_Send_Account_Verify_Tag2";  // Insert Modal button configuration here
+
+    email= $($email).val();
+
+    $($SPT_alert).empty();                                            // clear everything that has class error (.error)
+    $($SPT_Send_Account_Verify_Tag1).empty();                          // also clear out this tag for next response
+
+    if (email == ''){
+        $($email).focus();
+        $($email).after('<span class="SPT_alert"><font color = "#ff0000"> Enter an email address</font></span>');
+        return;              //no username
+    }
+
+    $($SPT_alert).empty();                                            // clear everything that has class error (.error)
+
+    PT_obj['email'] = $($email).val();
+
+
+    $.ajax({
+        'async': true,
+        'type':'post',
+        'data': PT_obj,                                                           // call the correct program scraper thru the view callable by sending it's dictionary
+        'url': 'Send_PointTracker_Account_View',
+        'success': function (status) {                               // call backback function return new updated program_account
+            $($SPT_Send_Account_Verify_Tag1).empty();
+            $($SPT_Send_Account_Verify_Tag2).empty();
+            if (status == true) {
+                $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center; color:#7fba00"><br>Your email has been sent successfully.</div>');
+                $($SPT_Send_Account_Verify_Tag2).append('<button id="SPT_OK_Button" class="btn btn-info" data-dismiss="modal">OK</button>');
+                $('#SPT_OK_Button').focus();
+            }
+            else {                      // Email sending failed for some reason. gmail down? badly formed email address?
+                $($email).focus();
+                $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center; color:#ff0000"><br>Email error.  Please check format of email and try again.</div>');
+                $($SPT_Send_Account_Verify_Tag2).append('<button id="SPT_Submit_Modal_Button" class="btn btn-info">Send</button>');
+                $($SPT_Send_Account_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
+            }
+        }
+    });
+});
 
 
 

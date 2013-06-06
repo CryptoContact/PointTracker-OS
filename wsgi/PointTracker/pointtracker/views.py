@@ -15,6 +15,8 @@ from PointTracker import Edit_Reward_Program
 from PointTracker import Delete_Reward_Program
 from PointTracker import Return_Reward_Program
 from PointTracker import Remove_PT_account_Reward_Program_Passwords
+from PointTracker import Change_PointTracker_Account_Password
+from PointTracker import Send_PointTracker_Account
 
 #from PointTracker import hack_mongo
 import Globalvars
@@ -140,28 +142,47 @@ def server_view13(request):
     return RP_account
 
 
-@view_config(route_name='FAQ', renderer='pointtracker:templates/FAQ.html')               #pull up our FAQ.html
+@view_config(renderer="json", name="Change_PointTracker_Account_Password_View")
 def server_view14(request):
+    status = Change_PointTracker_Account_Password(request.POST)                         #Returns Reward Program from database  (used for testing purposes without scraping and updating database
+    if status:
+        request.POST['password'] = request.POST['new_password']                    #Set the new password
+        request.POST['remember_me'] = "true"                                         #Set the new password
+        request.remember_me()                                                       #set new cookie with the new _id based on new password
+    return status
+
+
+@view_config(renderer="json", name="Send_PointTracker_Account_View")
+def server_view15(request):
+    status = Send_PointTracker_Account(request.POST['email'])                         #Returns Reward Program from database  (used for testing purposes without scraping and updating database
+                                                      #set new cookie with the new _id based on new password
+    return status
+
+
+
+
+@view_config(route_name='FAQ', renderer='pointtracker:templates/FAQ.html')               #pull up our FAQ.html
+def server_view20(request):
     return {}
 
 
 @view_config(route_name='test_page', renderer='pointtracker:templates/test_page.html')               #pull up our FAQ.html
-def server_view15(request):
+def server_view21(request):
     return {}
 
 
 @view_config(route_name='One_World', renderer='pointtracker:templates/One_World.html')               #pull up our FAQ.html
-def server_view16(request):
+def server_view22(request):
     return {}
 
 
 @view_config(route_name='Star_Alliance', renderer='pointtracker:templates/Star_Alliance.html')               #pull up our FAQ.html
-def server_view17(request):
+def server_view23(request):
     return {}
 
 
 @view_config(route_name='Sky_Team', renderer='pointtracker:templates/Sky_Team.html')               #pull up our FAQ.html
-def server_view18(request):
+def server_view24(request):
     return {}
 
 
