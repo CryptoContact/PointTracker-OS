@@ -27,7 +27,7 @@
     <favorites_list name="PointTracker" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.48024693">
+    <splitter split-orientation="vertical" split-proportion="0.5222102">
       <split-first>
         <leaf>
           <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="false">
@@ -42,7 +42,7 @@
           <file leaf-file-name="pointtracker.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.4637224">
+                <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.48514852">
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -125,7 +125,7 @@
           <file leaf-file-name="pointtracker.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="1028" column="120" selection-start="50023" selection-end="50023" vertical-scroll-proportion="0.4297082">
+                <state line="954" column="82" selection-start="46819" selection-end="46819" vertical-scroll-proportion="0.31333333">
                   <folding />
                 </state>
               </provider>
@@ -497,15 +497,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1208" extended-state="7" />
+    <frame x="-4" y="-4" width="1928" height="1208" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24893162" sideWeight="0.18423551" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3221154" sideWeight="0.7692308" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23076923" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3221154" sideWeight="0.682811" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31718898" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49839744" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24501425" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -747,7 +747,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.4637224">
+        <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.48514852">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -768,7 +768,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1028" column="120" selection-start="50023" selection-end="50023" vertical-scroll-proportion="0.4297082">
+        <state line="954" column="82" selection-start="46819" selection-end="46819" vertical-scroll-proportion="0.31333333">
           <folding />
         </state>
       </provider>

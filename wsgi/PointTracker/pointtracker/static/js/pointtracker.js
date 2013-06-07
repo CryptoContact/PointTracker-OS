@@ -964,7 +964,7 @@ function Send_PointTracker_Account() {
 
 // Setup Modal Button configuration
     $($SPT_Send_Account_Verify_Tag2).empty();
-    $($SPT_Send_Account_Verify_Tag2).append('<button id="SPT_Send_Account_Modal_Button" class="btn btn-info">Send</button>');
+    $($SPT_Send_Account_Verify_Tag2).append('<button id="SPT_Submit_Modal_Button" class="btn btn-info">Send</button>');
     $($SPT_Send_Account_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
 
     $(".SPT_alert").empty();                                                 // Hide any alerts from previous use of Modal
@@ -986,7 +986,7 @@ function Send_PointTracker_Account() {
 
 // Send PointTracker Account
 //
-$(document).on("click","#SPT_Send_Account_Modal_Button", function () {
+$(document).on("click","#SPT_Submit_Modal_Button", function () {
 
     var PT_obj = {};
     var email;
