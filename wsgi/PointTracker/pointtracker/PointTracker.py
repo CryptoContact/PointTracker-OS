@@ -41,6 +41,13 @@ import sys,os
 #email modules
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
+
+import base64
+
+
+
 
 
 def Init_App():
@@ -203,32 +210,14 @@ def Change_PointTracker_Account_Password(PT_obj):
 
 
 
-#def Send_PointTracker_Account(email):
-#    msg = MIMEText("This is a test PointTracker email")
-#
-#    # me == the sender's email address
-#    # you == the recipient's email address
-#    msg['Subject'] = 'PointTracker Account Update'
-#    msg['From'] = 'PointTracker@gmail.com'
-#    msg['To'] = 'mrfatboy@sbcglobal.net'
-#
-#    # Send the message via our own SMTP server, but don't include the
-#    # envelope header.
-##    s = smtplib.SMTP('localhost')
-#    s = smtplib.SMTP('127.0.0.1')
-#    s.sendmail(msg['From'], [msg['To']], msg.as_string())
-#    s.quit()
-#
 
 
 
-def Send_PointTracker_Account(_id, email):
+def Send_PointTracker_Account1(_id, email):
 
-#    from_addr = 'PointTracker@gmail.com'
     from_addr = 'thepointtracker@gmail.com'
     to_addr_list = [email]
     cc_addr_list = []
-#    message = 'This is a PointTracker test email'
     subject = 'PointTracker Account Update'
     smtpserver='smtp.gmail.com:587'
 
@@ -238,18 +227,20 @@ def Send_PointTracker_Account(_id, email):
     header += 'Cc: %s\n' % ','.join(cc_addr_list)
     header += 'Subject: %s\n\n' % subject
 
+
     PT_account = Get_PointTracker_Account(_id)
-    message = Build_Email_Message_Body(PT_account)
-    message = header + message
+    message_text = Build_Text_Email_Message_Body(PT_account)
+    message_html = Build_HTML_Email_Message_Body(PT_account)
+    message = header + message_text
 
     server = smtplib.SMTP(smtpserver)
     server.starttls()
-    server.login('thepointtracker','f47fantasma')
+    server.login('thepointtracker','!pointtracker#')
 
     status = True                                           #email sent  with no erros
 
     try:
-        problems = server.sendmail(from_addr, to_addr_list, message)
+        server.sendmail(from_addr, to_addr_list, message)
     except Exception as e:
         status = False
 
@@ -259,7 +250,79 @@ def Send_PointTracker_Account(_id, email):
 
 
 
-def Build_Email_Message_Body(PT_account):
+
+def Send_PointTracker_Account(_id, email):
+
+    # Construct email
+    msg = MIMEMultipart('alternative')
+    msg['To'] = email
+    msg['From'] = 'thepointtracker@gmail.com'
+    msg['Subject'] = 'PointTracker Account Update'
+
+    PT_account = Get_PointTracker_Account(_id)
+    message_text = Build_Text_Email_Message_Body(PT_account)
+    message_html = Build_HTML_Email_Message_Body(PT_account)
+
+#    message_text = "this is plain text"
+#    message_html = "<html><head></head><body><h1>This is html text</h1></body></html>"
+
+    part1 = MIMEText(message_text, 'plain')
+    part2 = MIMEText(message_html, 'html')
+
+    msg.attach(part1)
+    msg.attach(part2)
+
+
+#    f = open("pointtracker_email_header.jpg","rb")
+#    img = MIMEImage(f.read())
+#    f.close()
+#    msg.attach(img)
+
+
+
+##    image = mtk.read_file("pointtracker_email_header.jpg")
+#    try:
+#        f = open("pointtracker_email_header.jpg","rb")
+#        encoded_image = base64.b64encode(f.read())
+#    except Exception as e:
+#        msg = "An exception of type {0} occured, these were the arguments:\n{1!r}"
+#        print (msg.format(type(e).__name__, e.args))
+#    f.close()
+#
+#    image_str = encoded_image.decode("ASCII")
+#    try:
+#        msg.attach(MIMEImage(image_str))
+#    except Exception as e:
+#        msg = "An exception of type {0} occured, these were the arguments:\n{1!r}"
+#        print (msg.format(type(e).__name__, e.args))
+
+
+#    msg.attach(MIMEImage(file("image.png").read()))
+
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.starttls()
+    server.login('thepointtracker','!pointtracker#')
+
+    status = True                                           #email sent  with no errors
+    try:
+        server.sendmail(msg['From'], [msg['To']], msg.as_string())
+    except Exception as e:
+        emsg = "An exception of type {0} occured, these were the arguments:\n{1!r}"
+        print (emsg.format(type(e).__name__, e.args))
+        status = False
+
+    server.quit()
+    return status
+
+
+
+
+
+
+
+
+
+def Build_Text_Email_Message_Body(PT_account):
 
 
     message = 'PointTracker Account Update\n\n'
@@ -292,6 +355,75 @@ def Build_Email_Message_Body(PT_account):
 #    mtk.write_file(message,'email.txt')
 
     return message
+
+
+
+
+
+
+def Build_HTML_Email_Message_Body(PT_account):
+#    message = '<html><head><body style ="background: #ECF7FE">'
+
+#    message = '<img src="http://belleplainenow.com/wp-content/uploads/2010/11/cartoon-airplane11.jpg">'
+
+    f = open("static/graphics/pointtracker_email_header.png","rb")
+    img = f.read()
+    f.close()
+
+    encoded_image = base64.b64encode(img)
+    img_str = encoded_image.decode("utf-8")
+
+    message = '<img src="data:image/png;base64,'+ img_str + '">'
+
+    message += '<br>'
+
+    grand_total_points = 0
+
+    for sub_account in PT_account['PT_sub_accounts']:                                        #PointTracker accounts are made up of sub accounts of other people's accounts
+        message += 'Account :' + sub_account['SA_name'] + '<br>'                                             #sub_account name
+
+        message += '<table style ="background: #ECF7FE" border = "1">'
+
+        message += "<thead>"
+        message += "<tr>"
+        message += "<th>Program</th>"
+        message += "<th>Account</th>"
+        message += "<th>Balance</th>"
+        message += "<th>Last Activity</th>"
+        message += "<th>Expiration</th>"
+        message += "<th>Program Time</th>"
+        message += "<th>Last Updated</th>"
+        message += "</tr>"
+        message += "</thead>"
+
+        message += "<tbody>"
+
+        for RP_account in sub_account['SA_program_accounts']:                                                       #go thru list of program accounts for each sub account
+            message += "<tr>"
+            message += "<td>" + RP_account['RP_name'] + "</td>"
+            message += "<td style='text-align: right'>" + RP_account['RP_account_num'] + "</td>"
+            message += "<td style='text-align: right'>" + str(RP_account['RP_balance']) + "</td>"
+            message += "<td style='text-align: right'>" + RP_account['RP_last_activity_date'] + "</td>"
+            message += "<td style='text-align: right'>" + RP_account['RP_expiration_date'] + "</td>"
+            message += "<td style='text-align: right'>" + RP_account['RP_inactive_time'] + "</td>"
+            message += "<td style='text-align: right'>" + RP_account['RP_datestamp'] + "</td>"
+            message += "</tr>"
+
+#            sub_total_points = sub_total_points + RP_account['RP_balance']
+        message += "</tbody>"
+        message += "</table>"
+        message += '<br>'
+#    grand_total_points += sub_total_points
+
+    message += 'You may view your PointTracker account at ' + '<a href="https://pointtracker-fatapps.rhcloud.com">https://pointtracker-fatapps.rhcloud.com</a>'
+#    message = '</body></head></html>'
+
+#    mtk.write_file(message,'email.html')
+
+    return message
+
+
+
 
 
 

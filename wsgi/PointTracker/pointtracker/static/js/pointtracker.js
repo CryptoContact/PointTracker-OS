@@ -582,7 +582,7 @@ $(document).on("click","#ARP_Submit_Modal_Button", function () {
                     }
                     else {
                         $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
-                        $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center; color:#ff0000"><br>Login error. Please verify Program, Username and Password</div>');
+                        $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center; color:#ff0000">Login error. Please verify Program, Username and Password</div>');
                         $($Add_Reward_Program_Verify_Tag2).append('<button id="ARP_Submit_Modal_Button" class="btn btn-info">Submit</button>');
                         $($Add_Reward_Program_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
                         return;                             // return early and don't call Display_PointTracker_Account
@@ -676,7 +676,7 @@ $(document).on("click","#Refresh_Reward_Program_Button", function () {
                 }
                else {
                     $($RRP_row_id).append('<div class="RRP_alert" style ="text-align:left">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name'] + '</div>');
-                    $($Refresh_Reward_Program_Tag1).append('<div class="RRP_alert" style ="text-align:center; color:#ff0000""><br>Login error. Please verify Program, Username and Password</div>');
+                    $($Refresh_Reward_Program_Tag1).append('<div class="RRP_alert" style ="text-align:center; color:#ff0000"">Login error. Please verify Program, Username and Password</div>');
                     $($Refresh_Reward_Program_Tag2).append('<button class="btn btn-info" data-dismiss="modal">OK</button>');
                 }
         }
@@ -773,7 +773,7 @@ $(document).on("click","#ERP_Submit_Modal_Button", function () {
                 }
                 else {
                     $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
-                    $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center; color:#ff0000""><br>Login error. Please verify Program, Username and Password</div>');
+                    $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center; color:#ff0000"">Login error. Please verify Program, Username and Password</div>');
                     $($Edit_Reward_Program_Verify_Tag2).append('<button id="ERP_Submit_Modal_Button" class="btn btn-info">Submit</button>');
                     $($Edit_Reward_Program_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
                 }
@@ -933,13 +933,13 @@ $(document).on("click","#CPT_Submit_Modal_Button", function () {
             $($Change_PT_Account_Password_Verify_Tag1).empty();
             $($Change_PT_Account_Password_Verify_Tag2).empty();
             if (status == true) {
-                $($Change_PT_Account_Password_Verify_Tag1).append('<div class="CPT_alert" style ="text-align:center; color:#7fba00"><br>Your PointTracker account password has been changed.</div>');
+                $($Change_PT_Account_Password_Verify_Tag1).append('<div class="CPT_alert" style ="text-align:center; color:#7fba00">Your PointTracker account password has been changed.</div>');
                 $($Change_PT_Account_Password_Verify_Tag2).append('<button id="CPT_OK_Button" class="btn btn-info" data-dismiss="modal">OK</button>');
                 $('#CPT_OK_Button').focus();
             }
             else {                      // Incorrect username or password
                 $($username).focus();
-                $($Change_PT_Account_Password_Verify_Tag1).append('<div class="CPT_alert" style ="text-align:center; color:#ff0000"><br>Login error. Incorrect Username and/or Password.</div>');
+                $($Change_PT_Account_Password_Verify_Tag1).append('<div class="CPT_alert" style ="text-align:center; color:#ff0000">Login error. Incorrect Username and/or Password.</div>');
                 $($Change_PT_Account_Password_Verify_Tag2).append('<button id="CPT_Submit_Modal_Button" class="btn btn-info">Submit</button>');
                 $($Change_PT_Account_Password_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
             }
@@ -1004,7 +1004,9 @@ $(document).on("click","#SPT_Submit_Modal_Button", function () {
 
     if (email == ''){
         $($email).focus();
-        $($email).after('<span class="SPT_alert"><font color = "#ff0000"> Enter an email address</font></span>');
+//        $($email).after('<span class="SPT_alert"><font color = "#ff0000"> Enter an email address</font></span>');
+        $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center; color:#ff0000">Enter an email address</div>');
+
         return;              //no username
     }
 
@@ -1012,6 +1014,10 @@ $(document).on("click","#SPT_Submit_Modal_Button", function () {
 
     PT_obj['email'] = $($email).val();
     PT_obj['_id'] = Current_id;
+
+    // Start the Refreshing/Verifying Animation
+    $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center">' + '<img src="/static/graphics/refresh_animated.gif" alt="airline partner"  height="20" width="20" >'+ ' ' + 'Sending Email' + '</div>');
+
 
     $.ajax({
         'async': true,
@@ -1022,13 +1028,13 @@ $(document).on("click","#SPT_Submit_Modal_Button", function () {
             $($SPT_Send_Account_Verify_Tag1).empty();
             $($SPT_Send_Account_Verify_Tag2).empty();
             if (status == true) {
-                $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center; color:#7fba00"><br>Your email has been sent successfully.</div>');
+                $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center; color:#7fba00">Your email has been sent successfully.</div>');
                 $($SPT_Send_Account_Verify_Tag2).append('<button id="SPT_OK_Button" class="btn btn-info" data-dismiss="modal">OK</button>');
                 $('#SPT_OK_Button').focus();
             }
             else {                      // Email sending failed for some reason. gmail down? badly formed email address?
                 $($email).focus();
-                $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center; color:#ff0000"><br>Email error.  Please check format of email and try again.</div>');
+                $($SPT_Send_Account_Verify_Tag1).append('<div class="SPT_alert" style ="text-align:center; color:#ff0000">Email error.  Please check format of email and try again.</div>');
                 $($SPT_Send_Account_Verify_Tag2).append('<button id="SPT_Submit_Modal_Button" class="btn btn-info">Send</button>');
                 $($SPT_Send_Account_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
             }

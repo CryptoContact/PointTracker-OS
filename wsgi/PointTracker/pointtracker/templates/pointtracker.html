@@ -420,15 +420,8 @@
                     <div class="modal-body" style="text-align: center">
                         <p>Send a copy of your PointTracker account data to:</p>
                         <br>
-                        <form name="Send_Account_Form"  style="text-align:center">
-                            <table>
-                                    <tr>
-                                        <td>
-                                            <label for="SPT_email"><input type="text" name="email" id="SPT_email" placeholder="johndoe@email.com"></label>
-                                        </td>
-                                    </tr>
-                            </table>
-                        </form>
+                        <label for="SPT_email">
+                        <input type="text" name="email" id="SPT_email" placeholder="johndoe@email.com" onkeydown="if (event.keyCode == 13) document.getElementById('SPT_Submit_Modal_Button').click()"></label>
                         <div id="SPT_Send_Account_Verify_Tag1"></div>
                     </div>
 
