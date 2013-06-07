@@ -366,7 +366,7 @@ def Build_HTML_Email_Message_Body(PT_account):
 
 #    message = '<img src="http://belleplainenow.com/wp-content/uploads/2010/11/cartoon-airplane11.jpg">'
 
-    f = open("static/graphics/pointtracker_email_header.png","rb")
+    f = open("pointtracker_email_header.png","rb")
     img = f.read()
     f.close()
 
