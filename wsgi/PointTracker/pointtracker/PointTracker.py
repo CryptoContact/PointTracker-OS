@@ -404,12 +404,12 @@ def Build_HTML_Email_Message_Body(PT_account):
         for RP_account in sub_account['SA_program_accounts']:                                                       #go thru list of program accounts for each sub account
             message += "<tr>"
             message += "<td>" + RP_account['RP_name'] + "</td>"
-            message += "<td style='text-align: right'>" + RP_account['RP_account_num'] + "</td>"
+            message += "<td style='text-align: right'>" + RP_account['RP_account_name'] + '<br>' +RP_account['RP_account_num'] + "</td>"
             message += "<td style='text-align: right'>" + str(RP_account['RP_balance']) + "</td>"
             message += "<td style='text-align: right'>" + RP_account['RP_last_activity_date'] + "</td>"
             message += "<td style='text-align: right'>" + RP_account['RP_expiration_date'] + "</td>"
             message += "<td style='text-align: right'>" + RP_account['RP_inactive_time'] + "</td>"
-            message += "<td style='text-align: right'>" + RP_account['RP_datestamp'] + "</td>"
+            message += "<td style='text-align: right'>" + RP_account['RP_datestamp'] + '<br>' + RP_account['RP_timestamp'] + "</td>"
             message += "</tr>"
 
 #            sub_total_points = sub_total_points + RP_account['RP_balance']
