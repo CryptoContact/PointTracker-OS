@@ -366,7 +366,10 @@ def Build_HTML_Email_Message_Body(PT_account):
 
 #    message = '<img src="http://belleplainenow.com/wp-content/uploads/2010/11/cartoon-airplane11.jpg">'
 
-    f = open("pointtracker_email_header.png","rb")
+    current_directory  = os.path.dirname(os.path.realpath(__file__))                                                    #get current working directory
+    filepath  = os.path.join(current_directory,"static/graphics/pointtracker_email_header.png")                       #add the filename to it
+
+    f = open(filepath,"rb")
     img = f.read()
     f.close()
 
