@@ -1011,7 +1011,7 @@ $(document).on("click","#SPT_Submit_Modal_Button", function () {
     $($SPT_alert).empty();                                            // clear everything that has class error (.error)
 
     PT_obj['email'] = $($email).val();
-
+    PT_obj['_id'] = Current_id;
 
     $.ajax({
         'async': true,

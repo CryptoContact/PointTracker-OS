@@ -27,22 +27,22 @@
     <favorites_list name="PointTracker" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5222102">
+    <splitter split-orientation="vertical" split-proportion="0.8527748">
       <split-first>
         <leaf>
           <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="963" column="0" selection-start="47226" selection-end="47226" vertical-scroll-proportion="0.0">
+                <state line="1015" column="12" selection-start="49012" selection-end="49012" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="pointtracker.html" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="pointtracker.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.48514852">
+                <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="-5.6538463">
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -65,7 +65,7 @@
           <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="156" column="0" selection-start="7245" selection-end="7245" vertical-scroll-proportion="0.0">
+                <state line="45" column="0" selection-start="1889" selection-end="1889" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -98,10 +98,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PointTracker.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="PointTracker.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="252" column="0" selection-start="9182" selection-end="9182" vertical-scroll-proportion="0.0">
+                <state line="256" column="0" selection-start="9305" selection-end="9305" vertical-scroll-proportion="0.6384778">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PointTracker_local.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker_local.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="3" column="0" selection-start="24" selection-end="423" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -122,10 +131,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="pointtracker.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="954" column="82" selection-start="46819" selection-end="46819" vertical-scroll-proportion="0.31333333">
+                <state line="954" column="82" selection-start="46819" selection-end="46819" vertical-scroll-proportion="-4.2413793">
                   <folding />
                 </state>
               </provider>
@@ -158,10 +167,10 @@
         <option value="$PROJECT_DIR$/pointtracker/__init__.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/pointtracker/templates/index.html" />
-        <option value="$PROJECT_DIR$/pointtracker/views.py" />
-        <option value="$PROJECT_DIR$/pointtracker/PointTracker.py" />
         <option value="$PROJECT_DIR$/pointtracker/templates/pointtracker.html" />
         <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
+        <option value="$PROJECT_DIR$/pointtracker/views.py" />
+        <option value="$PROJECT_DIR$/pointtracker/PointTracker.py" />
       </list>
     </option>
   </component>
@@ -504,8 +513,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24893162" sideWeight="0.18423551" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3221154" sideWeight="0.682811" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31718898" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14957266" sideWeight="0.64102566" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35897437" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49839744" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24501425" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -588,48 +597,33 @@
         </line-breakpoint>
         <line-breakpoint type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>280</line>
+          <line>320</line>
           <option name="timeStamp" value="369" />
         </line-breakpoint>
         <line-breakpoint type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>417</line>
+          <line>457</line>
           <option name="timeStamp" value="386" />
         </line-breakpoint>
         <line-breakpoint type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>534</line>
+          <line>574</line>
           <option name="timeStamp" value="387" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>559</line>
+          <line>599</line>
           <option name="timeStamp" value="388" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>354</line>
+          <line>394</line>
           <option name="timeStamp" value="389" />
         </line-breakpoint>
         <line-breakpoint type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/airline_scrapers/american.py</url>
           <line>18</line>
           <option name="timeStamp" value="393" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/pointtracker/auth.py</url>
-          <line>97</line>
-          <option name="timeStamp" value="415" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/pointtracker/views.py</url>
-          <line>45</line>
-          <option name="timeStamp" value="422" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/pointtracker/auth.py</url>
-          <line>78</line>
-          <option name="timeStamp" value="424" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
@@ -649,15 +643,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="433" />
+      <option name="time" value="435" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pointtracker/templates/Star_Alliance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="161" selection-start="2229" selection-end="2229" vertical-scroll-proportion="0.8060345" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/american.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="51" selection-start="2703" selection-end="2703" vertical-scroll-proportion="0.0">
@@ -708,23 +697,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="0" selection-start="2879" selection-end="2879" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/PTrequest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="0" selection-start="7245" selection-end="7245" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -738,16 +713,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="0" selection-start="9182" selection-end="9182" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.48514852">
+        <state line="80" column="101" selection-start="4544" selection-end="4544" vertical-scroll-proportion="-5.6538463">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -766,9 +734,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker_local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="24" selection-end="423" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="954" column="82" selection-start="46819" selection-end="46819" vertical-scroll-proportion="0.31333333">
+        <state line="1015" column="12" selection-start="49012" selection-end="49012" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="1889" selection-end="1889" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="0" selection-start="2879" selection-end="2879" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="256" column="0" selection-start="9305" selection-end="9305" vertical-scroll-proportion="0.6384778">
           <folding />
         </state>
       </provider>

@@ -222,13 +222,13 @@ def Change_PointTracker_Account_Password(PT_obj):
 
 
 
-def Send_PointTracker_Account(email):
+def Send_PointTracker_Account(_id, email):
 
 #    from_addr = 'PointTracker@gmail.com'
     from_addr = 'thepointtracker@gmail.com'
     to_addr_list = [email]
     cc_addr_list = []
-    message = 'This is a PointTracker test email'
+#    message = 'This is a PointTracker test email'
     subject = 'PointTracker Account Update'
     smtpserver='smtp.gmail.com:587'
 
@@ -237,6 +237,9 @@ def Send_PointTracker_Account(email):
     header += 'To: %s\n' % ','.join(to_addr_list)
     header += 'Cc: %s\n' % ','.join(cc_addr_list)
     header += 'Subject: %s\n\n' % subject
+
+    PT_account = Get_PointTracker_Account(_id)
+    message = Build_Email_Message_Body(PT_account)
     message = header + message
 
     server = smtplib.SMTP(smtpserver)
@@ -252,6 +255,43 @@ def Send_PointTracker_Account(email):
 
     server.quit()
     return status
+
+
+
+
+def Build_Email_Message_Body(PT_account):
+
+
+    message = 'PointTracker Account Update\n\n'
+
+    grand_total_points = 0
+
+    for sub_account in PT_account['PT_sub_accounts']:                                        #PointTracker accounts are made up of sub accounts of other people's accounts
+        message += 'Account :'
+        message += sub_account['SA_name']  + '\n'                                               #sub_account name
+        message += '{:<30}{:<25}{:<15}{:>10}\t\t{:<25}{:<20}{:<15}{:<15}'.format('Name','Program','Account','Balance','Last Activity Date','Expiration Date','Program Time','Days Remaining') + '\n'
+        message += '------------------------------------------------------------------------------------------------------------------------------------------------------------------\n'
+
+        sub_total_points =0
+        for RP_account in sub_account['SA_program_accounts']:                                                       #go thru list of program accounts for each sub account
+            message += '{:<30}{:<25}{:<15}{:>10,d}\t\t{:<25}{:<20}{:<15}{:<15}'.format(
+                                    RP_account['RP_name'],RP_account['RP_account_name'],RP_account['RP_account_num'],RP_account['RP_balance'],RP_account['RP_last_activity_date'],RP_account['RP_expiration_date'],RP_account['RP_inactive_time'],RP_account['RP_days_remaining']) + '\n'
+
+
+            sub_total_points = sub_total_points + RP_account['RP_balance']
+
+        message += '------------------------------------------------------------------------------------------------------------------------------------------------------------------\n'
+        message += '                                                         Sub Total    {:>10,d}'.format(sub_total_points) + '\n'
+        message += '\n'
+        grand_total_points += sub_total_points
+
+    message += '                                            All Sub Accounts Total    {:>10,d}'.format(grand_total_points) + '\n\n\n'
+    message += 'You may view your PointTracker account at pointtracker-fatapps.rhcloud.com\n'
+
+#    print (message)
+#    mtk.write_file(message,'email.txt')
+
+    return message
 
 
 

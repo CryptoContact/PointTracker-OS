@@ -154,7 +154,7 @@ def server_view14(request):
 
 @view_config(renderer="json", name="Send_PointTracker_Account_View")
 def server_view15(request):
-    status = Send_PointTracker_Account(request.POST['email'])                         #Returns Reward Program from database  (used for testing purposes without scraping and updating database
+    status = Send_PointTracker_Account(request.POST['_id'], request.POST['email'])                         #Returns Reward Program from database  (used for testing purposes without scraping and updating database
                                                       #set new cookie with the new _id based on new password
     return status
 
