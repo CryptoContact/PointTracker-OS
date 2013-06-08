@@ -104,7 +104,7 @@ function Update_PointTracker_Account() {
     Create_Update_List();                                                     //Create a list of the all SA_accounts and RP_accounts in PT_account so we can iterate over them using callbacks for browser compatibility
     Display_Update_List_Item();
 
-    $($Update_PointTracker_Account_List_Tag).append('<br>');
+//    $($Update_PointTracker_Account_List_Tag).append('<br>');
 }
 
 
