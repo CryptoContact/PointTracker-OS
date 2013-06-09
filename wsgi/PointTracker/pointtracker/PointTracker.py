@@ -305,7 +305,7 @@ def Send_PointTracker_Account(_id, email):
 
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
-    server.login(Globalvars.gmail_password,Globalvars.gmail_password)
+    server.login(Globalvars.gmail_username,Globalvars.gmail_password)
 
     status = True                                           #email sent  with no errors
     try:

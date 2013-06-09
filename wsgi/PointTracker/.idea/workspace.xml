@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/Globalvars.py" afterPath="$PROJECT_DIR$/pointtracker/Globalvars.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/PointTracker.py" afterPath="$PROJECT_DIR$/pointtracker/PointTracker.py" />
     </list>
     <ignored path="PointTracker.iws" />
@@ -53,10 +52,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PointTracker.py" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="PointTracker.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="70" column="38" selection-start="2325" selection-end="2325" vertical-scroll-proportion="-7.8826814">
+                <state line="314" column="53" selection-start="11135" selection-end="11135" vertical-scroll-proportion="0.6311881">
                   <folding />
                 </state>
               </provider>
@@ -95,10 +94,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Globalvars.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="Globalvars.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/Globalvars.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="15" selection-start="51" selection-end="51" vertical-scroll-proportion="0.118329465">
+                <state line="3" column="15" selection-start="51" selection-end="51" vertical-scroll-proportion="0.15644172">
                   <folding />
                 </state>
               </provider>
@@ -500,7 +499,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24893162" sideWeight="0.18423551" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16037735" sideWeight="0.7722488" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2277512" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2277512" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49839744" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24501425" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -621,6 +620,11 @@
           <line>246</line>
           <option name="timeStamp" value="437" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
+          <line>307</line>
+          <option name="timeStamp" value="447" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -629,7 +633,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="447" />
+      <option name="time" value="448" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -703,7 +707,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="22" selection-start="6710" selection-end="6710" vertical-scroll-proportion="-0.65384614">
+        <state line="299" column="0" selection-start="14298" selection-end="14298" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1370650536579" expanded="true" signature="20452:20708" placeholder="..." />
           </folding>
@@ -717,16 +721,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
+    <entry file="file://$PROJECT_DIR$/pointtracker/Globalvars.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="38" selection-start="2325" selection-end="2325" vertical-scroll-proportion="-7.8826814">
+        <state line="3" column="15" selection-start="51" selection-end="51" vertical-scroll-proportion="0.15644172">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/Globalvars.py">
+    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="15" selection-start="51" selection-end="51" vertical-scroll-proportion="0.118329465">
+        <state line="314" column="53" selection-start="11135" selection-end="11135" vertical-scroll-proportion="0.6311881">
           <folding />
         </state>
       </provider>
