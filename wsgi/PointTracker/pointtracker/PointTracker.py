@@ -62,6 +62,8 @@ def Init_App():
 
         Globalvars.AES_Key = mtk.read_file("AES_Key.dng")
         Globalvars.Saltstring = mtk.read_file("Saltstring.dng")
+        Globalvars.gmail_username = mtk.read_file("gmail_username.dng")
+        Globalvars.gmail_password = mtk.read_file("gmail_password.dng")
         mongo_con = Connection('localhost', 27017)
         mongo_db = mongo_con.PT_database                                     ## is the database created? if not created it (PT_database)
 
@@ -71,6 +73,8 @@ def Init_App():
 
         Globalvars.AES_Key = mtk.read_file2(os.environ['OPENSHIFT_DATA_DIR'],"AES_Key.dng")
         Globalvars.Saltstring = mtk.read_file2(os.environ['OPENSHIFT_DATA_DIR'],"Saltstring.dng")
+        Globalvars.gmail_username = mtk.read_file2(os.environ['OPENSHIFT_DATA_DIR'],"gmail_username.dng")
+        Globalvars.gmail_password = mtk.read_file2(os.environ['OPENSHIFT_DATA_DIR'],"gmail_password.dng")
         mongo_con = Connection(os.environ['OPENSHIFT_MONGODB_DB_HOST'],
                            int(os.environ['OPENSHIFT_MONGODB_DB_PORT']))
 
@@ -301,7 +305,7 @@ def Send_PointTracker_Account(_id, email):
 
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
-    server.login('thepointtracker','!pointtracker#')
+    server.login(Globalvars.gmail_password,Globalvars.gmail_password)
 
     status = True                                           #email sent  with no errors
     try:
