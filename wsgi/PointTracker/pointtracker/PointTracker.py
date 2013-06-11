@@ -303,12 +303,13 @@ def Send_PointTracker_Account(_id, email):
 
 #    msg.attach(MIMEImage(file("image.png").read()))
 
-    server = smtplib.SMTP('smtp.gmail.com:587')
-    server.starttls()
-    server.login(Globalvars.gmail_username,Globalvars.gmail_password)
+
 
     status = True                                           #email sent  with no errors
+    server = smtplib.SMTP('smtp.gmail.com:587')
     try:
+        server.starttls()
+        server.login(Globalvars.gmail_username,Globalvars.gmail_password)
         server.sendmail(msg['From'], [msg['To']], msg.as_string())
     except Exception as e:
         emsg = "An exception of type {0} occured, these were the arguments:\n{1!r}"

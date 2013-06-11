@@ -17,7 +17,7 @@ from PointTracker import Return_Reward_Program
 from PointTracker import Remove_PT_account_Reward_Program_Passwords
 from PointTracker import Change_PointTracker_Account_Password
 from PointTracker import Send_PointTracker_Account
-
+import os
 #from PointTracker import hack_mongo
 import Globalvars
 
@@ -34,6 +34,7 @@ def server_view0(request):
 #        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
 
     print ('************************Incoming URL = ',request.url)
+    print ('!!!!!!!!!!!!!!!!!!!!!!!!Env variable = ',os.environ['HTTP_X_FORWARDED_PROTO'])
     if 'PointTracker_Login' in request.cookies:                                             #is the cookie set?
         url = request.route_url('pointtracker')                                             #cookie was set so redirect
         return HTTPFound(location=url)
