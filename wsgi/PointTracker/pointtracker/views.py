@@ -27,14 +27,13 @@ import Globalvars
 
 @view_config(route_name='home', renderer='pointtracker:templates/index.html')               #pull up our index.html
 def server_view0(request):
-#    if request.url.startswith('http:') and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
 #        print ('Incoming URL = ',request.url)
-#        redirect_url= 'https' + request.url[4:]
+        redirect_url= 'https' + request.url[4:]
 #        print ('Redirecting to :', redirect_url)
-#        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
 
     print ('************************Incoming URL = ',request.url)
-    print ('!!!!!!!!!!!!!!!!!!!!!!!!Env variable = ',request['HTTP_X_FORWARDED_PROTO'])
     if 'PointTracker_Login' in request.cookies:                                             #is the cookie set?
         url = request.route_url('pointtracker')                                             #cookie was set so redirect
         return HTTPFound(location=url)
@@ -71,9 +70,15 @@ def server_view3(request):
 
 @view_config(route_name='pointtracker', renderer='pointtracker:templates/pointtracker.html')               #pull up our index.html
 def server_view4(request):
+
     if 'PointTracker_Login' not in request.cookies:                             #is the cookie set?
         url = request.route_url('home')                                     #cookie is not set so redirect home sign in page
         return HTTPFound(location=url)
+
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     return {}                                                               #No return dict at this time.  All of our info comes from Get_PointTracker_account ajax calls
 
 
