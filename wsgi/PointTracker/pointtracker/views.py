@@ -115,7 +115,7 @@ def server_view6(request):
     if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
         redirect_url= 'https' + request.url[4:]
         return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
-    
+
     RP_account = Refresh_Reward_Program(request.GET)                       #Get the new updated Reward Program
     return RP_account
 
@@ -123,6 +123,9 @@ def server_view6(request):
 
 @view_config(renderer="json", name="Add_Sub_Account_View")
 def server_view7(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
     Add_Sub_Account(request.GET)                                            #Add a new sub account to the database
     return
 
@@ -130,6 +133,9 @@ def server_view7(request):
 
 @view_config(renderer="json", name="Delete_Sub_Account_View")
 def server_view8(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
     Delete_Sub_Account(request.GET)                                         #Delete a sub account out of the database
     return
 
@@ -137,6 +143,9 @@ def server_view8(request):
 
 @view_config(renderer="json", name="Add_Reward_Program_View")
 def server_view9(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
     RP_account = Add_Reward_Program(request.GET)                            #Add a Reward Program to the database
     return RP_account                                                       #Check later if needed for callbacks
 
@@ -144,6 +153,10 @@ def server_view9(request):
 
 @view_config(renderer="json", name="Delete_Reward_Program_View")
 def server_view10(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     Delete_Reward_Program(request.GET)                                      #Delete a Reward Program from the database
     return
 
@@ -151,6 +164,10 @@ def server_view10(request):
 
 @view_config(renderer="json", name="Refresh_Reward_Program_View")
 def server_view11(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     RP_account = Refresh_Reward_Program(request.GET)                        #Refreshes by scraping and updating the database
     return RP_account                                                       #Return for callback info inside
 
@@ -158,6 +175,10 @@ def server_view11(request):
 
 @view_config(renderer="json", name="Edit_Reward_Program_View")
 def server_view12(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     RP_account = Edit_Reward_Program(request.GET)                           #Edit/Modify a Reward Program in the database
     return RP_account                                                       #Check later if needed for callbacks
 
@@ -165,6 +186,10 @@ def server_view12(request):
 
 @view_config(renderer="json", name="Get_Reward_Program_View")
 def server_view13(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     RP_account = Return_Reward_Program(request.GET)                         #Returns Reward Program from database  (used for testing purposes without scraping and updating database
     RP_account['RP_password'] = ''                                          #Remove password for client side for security reasons. no reason for the client to have it.
     return RP_account
@@ -172,6 +197,10 @@ def server_view13(request):
 
 @view_config(renderer="json", name="Change_PointTracker_Account_Password_View")
 def server_view14(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     status = Change_PointTracker_Account_Password(request.POST)                         #Returns Reward Program from database  (used for testing purposes without scraping and updating database
     if status:
         request.POST['password'] = request.POST['new_password']                    #Set the new password
@@ -182,6 +211,10 @@ def server_view14(request):
 
 @view_config(renderer="json", name="Send_PointTracker_Account_View")
 def server_view15(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     status = Send_PointTracker_Account(request.POST['_id'], request.POST['email'])                         #Returns Reward Program from database  (used for testing purposes without scraping and updating database
                                                       #set new cookie with the new _id based on new password
     return status

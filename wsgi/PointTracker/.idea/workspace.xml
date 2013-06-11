@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="" />
+    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/views.py" afterPath="$PROJECT_DIR$/pointtracker/views.py" />
+    </list>
     <ignored path="PointTracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,7 +73,7 @@
           <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="117" column="4" selection-start="6346" selection-end="6346" vertical-scroll-proportion="0.5939759">
+                <state line="249" column="0" selection-start="13362" selection-end="13362" vertical-scroll-proportion="0.9385542">
                   <folding />
                 </state>
               </provider>
@@ -750,7 +752,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="4" selection-start="6346" selection-end="6346" vertical-scroll-proportion="0.5939759">
+        <state line="249" column="0" selection-start="13362" selection-end="13362" vertical-scroll-proportion="0.9385542">
           <folding />
         </state>
       </provider>
