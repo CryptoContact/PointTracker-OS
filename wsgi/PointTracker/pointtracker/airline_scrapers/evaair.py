@@ -9,7 +9,7 @@ import Globalvars
 
 
 
-def get_program_account_info(RP_account):
+def get_program_account_info(key, RP_account):
     url0 = 'http://www.evaair.com/en-us/index.html'
     url2 = 'https://eservice.evaair.com/EVAWEB/EVA/FFP/frm_login.aspx?p_url=http://www.evaair.com/en-us/index.html'                 #embeded login modal with _viewstate and _eventvalidations
     url3 = 'https://eservice.evaair.com/EVAWEB/EVA/FFP/frm_login.aspx?p_url=http%3a%2f%2fwww.evaair.com%2fen-us%2findex.html'       #post to this
@@ -32,7 +32,7 @@ def get_program_account_info(RP_account):
 #    AES_Key = '0123456789abcdef'
 
     form_data['wuc_login$txt_Member'] = RP_account['RP_username']
-    form_data['wuc_login$txt_Password'] = mtk.decrypt(Globalvars.AES_Key,RP_account['RP_password'])
+    form_data['wuc_login$txt_Password'] = mtk.decrypt(key, RP_account['RP_password'])
 #    form_data['wuc_login$txt_Password'] = RP_account['RP_password']
 
     s = requests.session()

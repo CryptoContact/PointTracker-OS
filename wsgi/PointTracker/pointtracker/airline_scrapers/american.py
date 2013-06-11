@@ -8,7 +8,7 @@ from datetime import datetime
 import Globalvars
 import re
 
-def get_program_account_info(RP_account):
+def get_program_account_info(key,RP_account):
     url_loginSubmit = 'https://www.aa.com/login/loginSubmit.do'
     url_myAccountAccess = 'https://www.aa.com/myAccount/myAccountAccess.do'
 
@@ -17,7 +17,8 @@ def get_program_account_info(RP_account):
 #    AES_key = '0123456789abcdef'
 
     form_data['loginId'] = RP_account['RP_username']
-    form_data['password'] = mtk.decrypt(Globalvars.AES_Key,RP_account['RP_password'])
+#    form_data['password'] = mtk.decrypt(Globalvars.AES_Key,RP_account['RP_password'])
+    form_data['password'] = mtk.decrypt(key, RP_account['RP_password'])
 #    form_data['password'] = RP_account['RP_password']
 
     s = requests.session()

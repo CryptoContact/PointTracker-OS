@@ -6,7 +6,7 @@ from pyramid.security import Authenticated, Everyone
 import hashlib
 from PointTracker import Valid_PointTracker_Account
 import Globalvars
-
+import mtk
 #class Root(object):
 #    __acl__ = [
 #        (Allow, Viewer, Viewer),
@@ -53,9 +53,12 @@ class MyAuthenticationPolicy(object):
 
     cookie_version = '1'
 
-    def __init__(self, secret, cookie_name):
+    def __init__(self, secret, cookie_name, cookie_name_password, cookie_name_remember_me):
         self.secret = secret
         self.cookie_name = cookie_name
+#        self.cookie_name_username = cookie_name_username
+        self.cookie_name_password = cookie_name_password
+        self.cookie_name_remember_me = cookie_name_remember_me
 
 
     def authenticated_userid(self, request):
@@ -103,10 +106,16 @@ class MyAuthenticationPolicy(object):
         hash = hashlib.sha256()
         string = username  + Globalvars.Saltstring + password
         encode_string = string.encode('utf-8')
-
         hash.update(encode_string)
-
         _id = hash.hexdigest()                                  #get unique hash for the database and cookie
+
+
+        hash = hashlib.sha256()
+        string = Globalvars.Saltstring + password
+        encode_string = string.encode('utf-8')
+        hash.update(encode_string)
+        password_key = hash.hexdigest()
+        password_key = password_key[:16]                      #use the first 16 chars for key
 
         response = request.response
 #Make sure _id is URL safe for future use.  We know it's a string now and safe
@@ -115,19 +124,28 @@ class MyAuthenticationPolicy(object):
         else:
             max_age=600                                             #Log me out in 10 minutes
         response.set_cookie(self.cookie_name, _id, max_age if principal else None, secure=False, path='/')
+#        response.set_cookie(self.cookie_name_username, username_encrypt, max_age if principal else None, secure=False, path='/')
+        response.set_cookie(self.cookie_name_password, password_key, max_age if principal else None, secure=False, path='/')
+        response.set_cookie(self.cookie_name_remember_me, remember_me, max_age if principal else None, secure=False, path='/')
         return
 
 
     def forget(self, request):
         response = request.response
         response.delete_cookie(self.cookie_name)
+#        response.delete_cookie(self.cookie_name_username)
+        response.delete_cookie(self.cookie_name_password)
+        response.delete_cookie(self.cookie_name_remember_me)
         return
 
 
 
 authentication_policy = MyAuthenticationPolicy(
     secret = 'makeup32randomcharactersforthis!',
-    cookie_name = 'PointTracker_Login'
+    cookie_name = 'PointTracker_Login',
+#    cookie_name_username = 'PointTracker_username',
+    cookie_name_password = 'PointTracker_password',
+    cookie_name_remember_me = 'PointTracker_remember_me'
 )
 
 authorization_policy = ACLAuthorizationPolicy()

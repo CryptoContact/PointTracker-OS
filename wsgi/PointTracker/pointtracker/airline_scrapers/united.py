@@ -10,7 +10,7 @@ import Globalvars
 
 
 
-def get_program_account_info(RP_account):
+def get_program_account_info(key, RP_account):
     url_loginSubmit = 'https://www.united.com/web/en-US/apps/account/signin.aspx'
     url3 = 'https://www.united.com/web/en-US/apps/mileageplus/statement/statement.aspx?MP=1&SD=12/31/2011'
 
@@ -75,7 +75,7 @@ def get_program_account_info(RP_account):
 #    AES_Key = '0123456789abcdef'
 
     form_data['ctl00$ContentInfo$SignIn$onepass$txtField'] = RP_account['RP_username']
-    form_data['ctl00$ContentInfo$SignIn$password$txtPassword'] =  mtk.decrypt(Globalvars.AES_Key,RP_account['RP_password'])
+    form_data['ctl00$ContentInfo$SignIn$password$txtPassword'] =  mtk.decrypt(key, RP_account['RP_password'])
 #    form_data['ctl00$ContentInfo$SignIn$password$txtPassword'] = RP_account['RP_password']
 
 

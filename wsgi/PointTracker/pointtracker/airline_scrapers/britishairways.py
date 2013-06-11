@@ -14,7 +14,7 @@ import Globalvars
 
 
 
-def get_program_account_info(RP_account):
+def get_program_account_info(key,RP_account):
     url0 = 'https://www.britishairways.com/travel/home/public/en_us'
     url1 = 'https://www.britishairways.com/travel/loginr/public/en_us'
 
@@ -28,7 +28,7 @@ def get_program_account_info(RP_account):
 
 #    AES_Key = '0123456789abcdef'
     form_data['membershipNumber'] = RP_account['RP_username']
-    form_data['password'] = mtk.decrypt(Globalvars.AES_Key,RP_account['RP_password'])
+    form_data['password'] = mtk.decrypt(key, RP_account['RP_password'])
 #    form_data['password'] = RP_account['RP_password']
 
     s = requests.Session()

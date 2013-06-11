@@ -38,7 +38,7 @@ function Get_PointTracker_Account () {
         });
         return json;
     })();
-    Current_id = PT_account['_id'];
+    Current_id = $.cookie("PointTracker_Login");
     Current_PT_account = PT_account;
     return PT_account;
 }
@@ -140,6 +140,7 @@ function Display_Update_List_Item () {
     PT_obj['SA_id'] = RP_account['SA_id'];
     PT_obj['RP_id'] = RP_account['RP_id'];
     PT_obj['RP_callback_tag'] = RP_account['RP_callback_tag'];
+    PT_obj['PT_password_encrypted'] = $.cookie("PointTracker_password");
 
     $($Update_PointTracker_Account_List_Tag).append('<div id=' + RP_account['RP_callback_tag'] + ' style ="text-align:left">' + '<img src="/static/graphics/refresh_animated.gif" alt="airline partner"  height="20" width="20" >' + ' '+ RP_account['RP_name']  + '<br>' + '</div>');
 
@@ -548,6 +549,8 @@ $(document).on("click","#ARP_Submit_Modal_Button", function () {
     PT_obj['RP_username'] = $($username).val();                                             //get the inputs from the form
     PT_obj['RP_password'] = $($password).val();
     PT_obj['RP_name'] = $("#ARP_normalSelect1").val();
+    PT_obj['PT_password_encrypted'] = $.cookie("PointTracker_password");
+
 
     $(".ARP_alert").empty();                                                                // clear everything that has class error (.error)
     $($Add_Reward_Program_Verify_Tag1).empty();                                              // also clear out this tag for next response
@@ -654,6 +657,7 @@ $(document).on("click","#Refresh_Reward_Program_Button", function () {
     PT_obj['SA_id'] = Current_SA_id;
     PT_obj['RP_id'] = Current_RP_id;                                //set up object to send to server
     PT_obj['RP_callback_tag'] = '#RRP_row_id';                  //embed the id tag to look for  for the call back function
+    PT_obj['PT_password_encrypted'] = $.cookie("PointTracker_password");
 
     $(".RRP_alert").empty();                                            // clear everything that has class error (.error)
     $($Refresh_Reward_Program_Tag2).empty();
@@ -735,6 +739,7 @@ $(document).on("click","#ERP_Submit_Modal_Button", function () {
     PT_obj['SA_id'] = Current_SA_id;                                            // Get sub_account index from html table
     PT_obj['RP_id'] = Current_RP_id;                                         // Get program_account index from html table
     PT_obj['RP_callback_tag'] = $Edit_Reward_Program_Verify_Tag1;                  //embed the id tag to look for  for the call back function
+    PT_obj['PT_password_encrypted'] = $.cookie("PointTracker_password");
 
     PT_obj['RP_username'] = $($username).val();
     PT_obj['RP_password'] = $($password).val();
@@ -866,6 +871,7 @@ $(document).on("click","#CPT_Submit_Modal_Button", function () {
     var password;
     var new_password;
     var new_password_confirm;
+    var new_remember_me;
 
     var $username = "#CPT_username";
     var $password = "#CPT_password";
@@ -880,8 +886,7 @@ $(document).on("click","#CPT_Submit_Modal_Button", function () {
     password = $($password).val();
     new_password = $($new_password).val();
     new_password_confirm = $($new_password_confirm).val();
-
-
+    new_remember_me = $.cookie("PointTracker_remember_me");
 
     $($CPT_alert).empty();                                            // clear everything that has class error (.error)
     $($Change_PT_Account_Password_Verify_Tag1).empty();                          // also clear out this tag for next response
@@ -922,6 +927,8 @@ $(document).on("click","#CPT_Submit_Modal_Button", function () {
     PT_obj['username'] = $($username).val();
     PT_obj['password'] = $($password).val();
     PT_obj['new_password'] = $($new_password).val();
+    PT_obj['new_remember_me'] = new_remember_me;
+    PT_obj['PT_password_encrypted'] = $.cookie("PointTracker_password");
 
 
     $.ajax({
@@ -936,6 +943,7 @@ $(document).on("click","#CPT_Submit_Modal_Button", function () {
                 $($Change_PT_Account_Password_Verify_Tag1).append('<div class="CPT_alert" style ="text-align:center; color:#7fba00">Your PointTracker account password has been changed.</div>');
                 $($Change_PT_Account_Password_Verify_Tag2).append('<button id="CPT_OK_Button" class="btn btn-info" data-dismiss="modal">OK</button>');
                 $('#CPT_OK_Button').focus();
+                Get_PointTracker_Account();             //update all global variables
             }
             else {                      // Incorrect username or password
                 $($username).focus();
