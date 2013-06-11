@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/views.py" afterPath="$PROJECT_DIR$/pointtracker/views.py" />
-    </list>
+    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="" />
     <ignored path="PointTracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,7 +71,7 @@
           <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="160" column="0" selection-start="7805" selection-end="7805" vertical-scroll-proportion="0.020987654">
+                <state line="117" column="4" selection-start="6346" selection-end="6346" vertical-scroll-proportion="0.5939759">
                   <folding />
                 </state>
               </provider>
@@ -95,7 +93,7 @@
           <file leaf-file-name="pointtracker.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="139" column="22" selection-start="6710" selection-end="6710" vertical-scroll-proportion="0.14285715">
+                <state line="139" column="22" selection-start="6710" selection-end="6710" vertical-scroll-proportion="0.14166667">
                   <folding>
                     <marker date="1370650536579" expanded="true" signature="20452:20708" placeholder="..." />
                   </folding>
@@ -138,10 +136,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="19" />
-    <option name="y" value="58" />
-    <option name="width" value="1858" />
-    <option name="height" value="1200" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1928" />
+    <option name="height" value="1208" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -509,14 +507,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="19" y="58" width="1858" height="1200" extended-state="0" />
+    <frame x="-4" y="-4" width="1928" height="1208" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24893162" sideWeight="0.18423551" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16204217" sideWeight="0.7722488" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15598291" sideWeight="0.7722488" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2277512" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49839744" order="9" side_tool="true" content_ui="tabs" />
@@ -752,7 +750,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="0" selection-start="7805" selection-end="7805" vertical-scroll-proportion="0.020987654">
+        <state line="117" column="4" selection-start="6346" selection-end="6346" vertical-scroll-proportion="0.5939759">
           <folding />
         </state>
       </provider>

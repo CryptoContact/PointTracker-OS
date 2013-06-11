@@ -112,7 +112,10 @@ def server_view5(request):
 
 @view_config(renderer="json", name="Update_PointTracker_Account_View")
 def server_view6(request):
-
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+    
     RP_account = Refresh_Reward_Program(request.GET)                       #Get the new updated Reward Program
     return RP_account
 
