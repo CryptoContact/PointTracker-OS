@@ -73,7 +73,7 @@
           <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="79" column="8" selection-start="3617" selection-end="3617" vertical-scroll-proportion="0.89506173">
+                <state line="160" column="0" selection-start="7805" selection-end="7805" vertical-scroll-proportion="0.020987654">
                   <folding />
                 </state>
               </provider>
@@ -752,7 +752,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="8" selection-start="3617" selection-end="3617" vertical-scroll-proportion="0.89506173">
+        <state line="160" column="0" selection-start="7805" selection-end="7805" vertical-scroll-proportion="0.020987654">
           <folding />
         </state>
       </provider>

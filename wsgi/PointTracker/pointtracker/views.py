@@ -28,12 +28,10 @@ import Globalvars
 @view_config(route_name='home', renderer='pointtracker:templates/index.html')               #pull up our index.html
 def server_view0(request):
     if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
-#        print ('Incoming URL = ',request.url)
         redirect_url= 'https' + request.url[4:]
-#        print ('Redirecting to :', redirect_url)
         return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
 
-    print ('************************Incoming URL = ',request.url)
+#    print ('************************Incoming URL = ',request.url)
     if 'PointTracker_Login' in request.cookies:                                             #is the cookie set?
         url = request.route_url('pointtracker')                                             #cookie was set so redirect
         return HTTPFound(location=url)
@@ -43,6 +41,10 @@ def server_view0(request):
 
 @view_config(renderer="json", name="Sign_In_View")
 def server_view1(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     hasAccount = request.hasPTaccount()
     if hasAccount:                                                          #true?
         request.remember_me()                                               #remember me will determine cookie time limit
@@ -52,6 +54,10 @@ def server_view1(request):
 
 @view_config(renderer="json", name="Register_View")
 def server_view2(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
 #    hack_mongo(request.POST)
     hasAccount = request.hasPTaccount()                                     #the account already exists so don't create a new one and warn user
     if not hasAccount:
@@ -63,6 +69,10 @@ def server_view2(request):
 
 @view_config(route_name='Sign_Out', renderer='pointtracker:templates/index.html')               #pull up our index.html
 def server_view3(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
     request.forget()                                                                            #delete cookie
     return {}
 
@@ -70,6 +80,9 @@ def server_view3(request):
 
 @view_config(route_name='pointtracker', renderer='pointtracker:templates/pointtracker.html')               #pull up our index.html
 def server_view4(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
 
     if 'PointTracker_Login' not in request.cookies:                             #is the cookie set?
         url = request.route_url('home')                                     #cookie is not set so redirect home sign in page
@@ -85,6 +98,11 @@ def server_view4(request):
 
 @view_config(renderer="json", name="Get_PointTracker_Account_View")        #Get our PT_account of of the database
 def server_view5(request):
+    if request['HTTP_X_FORWARDED_PROTO'] == 'http' and Globalvars.DEPLOY == True:                       #Only redirect if DEPLOY if on live website
+        redirect_url= 'https' + request.url[4:]
+        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
+
+
     _id = request.cookies['PointTracker_Login']                            # cookie is in here and contains the _id
     PT_account = Get_PointTracker_Account(_id)                             # Pull the PT_account out of the database
     Remove_PT_account_Reward_Program_Passwords(PT_account)                 # we need to remove RP_account passwords so that they can't be seen on client side
@@ -94,6 +112,7 @@ def server_view5(request):
 
 @view_config(renderer="json", name="Update_PointTracker_Account_View")
 def server_view6(request):
+
     RP_account = Refresh_Reward_Program(request.GET)                       #Get the new updated Reward Program
     return RP_account
 
