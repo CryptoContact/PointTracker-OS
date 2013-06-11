@@ -34,7 +34,7 @@ def server_view0(request):
 #        return HTTPFound(location = redirect_url)                                         #Redirect traffic to https
 
     print ('************************Incoming URL = ',request.url)
-    print ('!!!!!!!!!!!!!!!!!!!!!!!!Env variable = ',os.environ['HTTP_X_FORWARDED_PROTO'])
+    print ('!!!!!!!!!!!!!!!!!!!!!!!!Env variable = ',request['HTTP_X_FORWARDED_PROTO'])
     if 'PointTracker_Login' in request.cookies:                                             #is the cookie set?
         url = request.route_url('pointtracker')                                             #cookie was set so redirect
         return HTTPFound(location=url)
