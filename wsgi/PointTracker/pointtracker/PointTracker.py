@@ -380,19 +380,19 @@ def Build_Text_Email_Message_Body(PT_account):
 def Build_HTML_Email_Message_Body(PT_account):
 #    message = '<html><head><body style ="background: #ECF7FE">'
 
-#    message = '<img src="http://belleplainenow.com/wp-content/uploads/2010/11/cartoon-airplane11.jpg">'
+    message = '<img src="https://pointtracker-fatapps.rhcloud.com/static/graphics/pointtracker_email_header.png">'
 
-    current_directory  = os.path.dirname(os.path.realpath(__file__))                                                    #get current working directory
-    filepath  = os.path.join(current_directory,"static/graphics/pointtracker_email_header.png")                       #add the filename to it
-
-    f = open(filepath,"rb")
-    img = f.read()
-    f.close()
-
-    encoded_image = base64.b64encode(img)
-    img_str = encoded_image.decode("utf-8")
-
-    message = '<img src="data:image/png;base64,'+ img_str + '">'
+#    current_directory  = os.path.dirname(os.path.realpath(__file__))                                                    #get current working directory
+#    filepath  = os.path.join(current_directory,"static/graphics/pointtracker_email_header.png")                       #add the filename to it
+#
+#    f = open(filepath,"rb")
+#    img = f.read()
+#    f.close()
+#
+#    encoded_image = base64.b64encode(img)
+#    img_str = encoded_image.decode("utf-8")
+#
+#    message = '<img src="data:image/png;base64,'+ img_str + '">'
 
     message += '<br>'
 
