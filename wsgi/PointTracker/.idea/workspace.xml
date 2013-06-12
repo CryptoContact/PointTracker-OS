@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="" />
+    <list default="true" id="b2561243-41c6-49e3-82ed-1a8c09f77894" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py" afterPath="$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py" />
+    </list>
     <ignored path="PointTracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,7 +29,7 @@
     <favorites_list name="PointTracker" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.7131868">
       <split-first>
         <leaf>
           <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="false">
@@ -39,10 +41,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PointTracker.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="PointTracker.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="595" column="0" selection-start="23872" selection-end="23872" vertical-scroll-proportion="0.33118972">
+                <state line="595" column="0" selection-start="23872" selection-end="23872" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="usairways.py" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="89" column="93" selection-start="5048" selection-end="5048" vertical-scroll-proportion="2.372093">
                   <folding />
                 </state>
               </provider>
@@ -73,7 +84,7 @@
           <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="32" column="51" selection-start="406" selection-end="458" vertical-scroll-proportion="-0.2628205">
+                <state line="32" column="51" selection-start="406" selection-end="458" vertical-scroll-proportion="-0.3761468">
                   <folding />
                 </state>
               </provider>
@@ -104,12 +115,12 @@
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/delta.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/evaair.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/united.py" />
-        <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py" />
         <option value="$PROJECT_DIR$/pointtracker/templates/index.html" />
         <option value="$PROJECT_DIR$/pointtracker/auth.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/american.py" />
         <option value="$PROJECT_DIR$/pointtracker/PointTracker.py" />
         <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
+        <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py" />
       </list>
     </option>
   </component>
@@ -492,8 +503,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24893162" sideWeight="0.18423551" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16185898" sideWeight="0.677113" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.322887" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16185898" sideWeight="0.86419755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13580246" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49839744" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24501425" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -638,11 +649,6 @@
         <state line="71" column="0" selection-start="6665" selection-end="6665" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="384" selection-end="384" vertical-scroll-proportion="-0.34393063" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/evaair.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="85" selection-start="1855" selection-end="1855" vertical-scroll-proportion="1.1364902" />
@@ -712,7 +718,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="595" column="0" selection-start="23872" selection-end="23872" vertical-scroll-proportion="0.33118972">
+        <state line="595" column="0" selection-start="23872" selection-end="23872" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="93" selection-start="5048" selection-end="5048" vertical-scroll-proportion="2.372093">
           <folding />
         </state>
       </provider>
