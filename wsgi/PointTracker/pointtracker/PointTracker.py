@@ -538,6 +538,8 @@ def Refresh_Reward_Program(PT_obj):
     key = PT_obj['PT_password_encrypted']
     PT_account = Get_PointTracker_Account(PT_obj['_id'])                #Get the PT account
     RP_account = Get_Reward_Program_Account(PT_account,PT_obj)         # Get the Reward Program account
+#    return RP_account
+
     refreshed_RP_account = Process_Reward_Program(key, RP_account)                  # Refresh it by calling the appropriate scraper
     if not refreshed_RP_account['RP_error']:                  #no error update the database otherwise display error in client
         Set_Reward_Program_Account(PT_account, refreshed_RP_account, PT_obj)

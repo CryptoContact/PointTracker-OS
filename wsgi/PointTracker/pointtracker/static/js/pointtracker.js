@@ -97,9 +97,12 @@ function Get_RP_account (PT_account, SA_id, RP_id) {
 function Update_PointTracker_Account() {
     var $Update_PointTracker_Account_List_Tag = '#Update_PointTracker_Account_List_Tag';
     var $Update_PointTracker_Account_Modal = '#Update_PointTracker_Account_Modal';
+    var $URP_Modal_Button = '#URP_Modal_Button';
 
     $($Update_PointTracker_Account_List_Tag).empty();
     $($Update_PointTracker_Account_Modal).modal('show');
+    $($URP_Modal_Button).empty();
+//    $($URP_Modal_Button).append('<button class="btn btn">OK</button>');
 
     Create_Update_List();                                                     //Create a list of the all SA_accounts and RP_accounts in PT_account so we can iterate over them using callbacks for browser compatibility
     Display_Update_List_Item();
@@ -117,6 +120,9 @@ function Display_Update_List_Item () {
     var RP_account;
     var PT_List_Item;
     var $Update_PointTracker_Account_List_Tag = '#Update_PointTracker_Account_List_Tag';
+    var $RP_callback_tag2;
+    var $URP_Modal_Tag2 = '#URP_Modal_Tag2';
+    var $URP_Modal_Button = '#URP_Modal_Button';
 
     PT_List_Item = PT_Update_List[PT_Update_List_Index];          //RP_account
 
@@ -125,15 +131,14 @@ function Display_Update_List_Item () {
         PT_Update_List_Index++;                                    //skip to name
         $($Update_PointTracker_Account_List_Tag).append("<h4 style='color:#4169e1'>" + PT_Update_List[PT_Update_List_Index] + "</h4>");    // print name
         PT_Update_List_Index++;                                    //skip to RP_account if there is one. or could be 'Sub_Account_Name' header
+        if (PT_Update_List[PT_Update_List_Index] == 'Sub_Account_Name') {
+            $($Update_PointTracker_Account_List_Tag).append("<h5 id = 'SCROLL_HERE', style='color:#ff0000'>" + 'No Reward Programs' + "</h5>");
+            $($URP_Modal_Tag2).stop().animate({ scrollTop: $('#SCROLL_HERE').offset().top}, 1);
+            setTimeout(Display_Update_List_Item(),200 );                     // Call function again to get next item in list
+            return
+        }
     }
 
-//    if (PT_Update_List_Index[PT_Update_List_Index] > PT_Update_List.length) {
-//        $($Update_PointTracker_Account_List_Tag).append("<h5>" + 'There are no Reward Programs in this account' + "</h5>");    // No Reward Programs
-//    }
-//
-//    if ((PT_Update_List_Index[PT_Update_List_Index] > PT_Update_List.length) || (PT_Update_List_Index[PT_Update_List_Index] == 'Sub_Account_Name')) {
-//        $($Update_PointTracker_Account_List_Tag).append("<h5>" + 'There are no Reward Programs in this account' + "</h5>");    // No Reward Programs
-//    } else {
     RP_account = PT_Update_List[PT_Update_List_Index];          //RP_account (Process it)
 
     PT_obj['_id'] = Current_id;
@@ -144,8 +149,9 @@ function Display_Update_List_Item () {
 
     $($Update_PointTracker_Account_List_Tag).append('<div id=' + RP_account['RP_callback_tag'] + ' style ="text-align:left">' + '<img src="/static/graphics/refresh_animated.gif" alt="airline partner"  height="20" width="20" >' + ' '+ RP_account['RP_name']  + '<br>' + '</div>');
 
-    var $RP_callback_tag2 = '#' + RP_account['RP_callback_tag'];
-    $('#URP_Modal_Tag').animate({ scrollTop: $($RP_callback_tag2).offset().top }, 500);                // Scroll to the element we just printed
+    $RP_callback_tag2 = '#' + RP_account['RP_callback_tag'];
+    $($URP_Modal_Tag2).stop().animate({ scrollTop: $($RP_callback_tag2).offset().top}, 500);
+
 
     $.ajax({
             'async': true,
@@ -153,6 +159,7 @@ function Display_Update_List_Item () {
             'url': 'Update_PointTracker_Account_View', //'Get_Reward_Program_View',  // 'Update_PointTracker_Account_View',
             'success': function (RP_account) {                                               // call backback function return new updated program_account
                 var $RP_callback_tag = '#' + RP_account['RP_callback_tag'];
+
                 if (RP_account['RP_error'] == false) {              // True if error. False if good
                     $($RP_callback_tag).html('<img src="/static/graphics/green_check_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name'] + '<br>');
                 }
@@ -164,6 +171,8 @@ function Display_Update_List_Item () {
                     Display_Update_List_Item();                     // Call itself to get next item in list
                 }
                 else {
+                    $($URP_Modal_Button).empty();
+                    $($URP_Modal_Button).append('<button class="btn btn-info" data-dismiss="modal">OK</button>');
                     Display_PointTracker_Account();                 // All the SA_accounts and RP_accounts are updated so refresh whole page
                 }
             }
@@ -623,7 +632,7 @@ function Refresh_Reward_Program(PT_THIS) {
 
     $(".RRP_alert").empty();                                            // clear everything that has class error (.error)
     $($Refresh_Reward_Program_Tag2).empty();
-    $($Refresh_Reward_Program_Tag2).append('<button class="btn">OK</button>');              //Greyed out 'OK" Button
+//    $($Refresh_Reward_Program_Tag2).append('<button class="btn">OK</button>');              //Greyed out 'OK" Button
 
     $('#Refresh_Reward_Program_Modal').modal('show');
 }
@@ -660,8 +669,8 @@ $(document).on("click","#Refresh_Reward_Program_Button", function () {
     PT_obj['PT_password_encrypted'] = $.cookie("PointTracker_password");
 
     $(".RRP_alert").empty();                                            // clear everything that has class error (.error)
-    $($Refresh_Reward_Program_Tag2).empty();
-    $($Refresh_Reward_Program_Tag2).append('<button class="btn">OK</button>');              // Greyed out 'OK' Button
+//    $($Refresh_Reward_Program_Tag2).empty();
+//    $($Refresh_Reward_Program_Tag2).append('<button class="btn">OK</button>');              // Greyed out 'OK' Button
 
 //    $('#Refresh_Reward_Program_Modal').modal('show');
 

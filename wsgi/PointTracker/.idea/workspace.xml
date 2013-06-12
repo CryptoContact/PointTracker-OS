@@ -27,61 +27,80 @@
     <favorites_list name="PointTracker" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.71318674">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="945" column="85" selection-start="46686" selection-end="46686" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PointTracker.py" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="390" column="1" selection-start="14724" selection-end="14724" vertical-scroll-proportion="0.7075099">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="173" column="0" selection-start="7789" selection-end="7789" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="auth.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pointtracker/auth.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="112" column="0" selection-start="3579" selection-end="3876" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="pointtracker.js" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="32" column="51" selection-start="406" selection-end="458" vertical-scroll-proportion="-0.45555556">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="pointtracker.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="152" column="34" selection-start="7363" selection-end="7363" vertical-scroll-proportion="81.73077">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pointtracker.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="666" column="56" selection-start="32018" selection-end="32018" vertical-scroll-proportion="2.3884296">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PointTracker.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="541" column="0" selection-start="21167" selection-end="21167" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="173" column="0" selection-start="7789" selection-end="7789" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pointtracker/auth.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="112" column="0" selection-start="3579" selection-end="3876" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -97,7 +116,6 @@
         <option value="$PROJECT_DIR$/pointtracker/mailtest.py" />
         <option value="$PROJECT_DIR$/pointtracker/emailtest.html" />
         <option value="$PROJECT_DIR$/pointtracker/__init__.py" />
-        <option value="$PROJECT_DIR$/pointtracker/templates/pointtracker.html" />
         <option value="$PROJECT_DIR$/pointtracker/Globalvars.py" />
         <option value="$PROJECT_DIR$/pointtracker/views.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/britishairways.py" />
@@ -107,9 +125,10 @@
         <option value="$PROJECT_DIR$/pointtracker/templates/index.html" />
         <option value="$PROJECT_DIR$/pointtracker/auth.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/american.py" />
-        <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py" />
         <option value="$PROJECT_DIR$/pointtracker/PointTracker.py" />
+        <option value="$PROJECT_DIR$/pointtracker/templates/pointtracker.html" />
+        <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
       </list>
     </option>
   </component>
@@ -192,51 +211,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PointTracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PointTracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pointtracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PointTracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PointTracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pointtracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,14 +240,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -492,8 +467,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24893162" sideWeight="0.18423551" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16185898" sideWeight="0.73694205" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26305792" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16346154" sideWeight="0.72839504" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27160493" sideWeight="0.85363245" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49839744" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24501425" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -576,12 +551,12 @@
         </line-breakpoint>
         <line-breakpoint type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>612</line>
+          <line>614</line>
           <option name="timeStamp" value="386" />
         </line-breakpoint>
         <line-breakpoint type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>729</line>
+          <line>731</line>
           <option name="timeStamp" value="387" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -593,21 +568,6 @@
           <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
           <line>316</line>
           <option name="timeStamp" value="447" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/pointtracker/PointTracker.py</url>
-          <line>473</line>
-          <option name="timeStamp" value="453" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/pointtracker/views.py</url>
-          <line>154</line>
-          <option name="timeStamp" value="454" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/pointtracker/views.py</url>
-          <line>173</line>
-          <option name="timeStamp" value="456" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -621,11 +581,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="299" column="0" selection-start="14298" selection-end="14298" vertical-scroll-proportion="-0.65384614" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="58" selection-end="119" vertical-scroll-proportion="0.0">
@@ -660,9 +615,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/mtk.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="46" column="0" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/templates/index.html">
@@ -672,7 +625,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/american.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
+        <state line="18" column="0" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Pystuff/PythonVenv/py33-PointTracker/Lib/site-packages/pyramid/config/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="492" column="0" selection-start="17439" selection-end="17439" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="93" selection-start="5048" selection-end="5048" vertical-scroll-proportion="2.372093" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="0" selection-start="7789" selection-end="7789" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -684,37 +654,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Pystuff/PythonVenv/py33-PointTracker/Lib/site-packages/pyramid/config/views.py">
+    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="492" column="0" selection-start="17439" selection-end="17439" vertical-scroll-proportion="0.0">
+        <state line="541" column="0" selection-start="21167" selection-end="21167" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/templates/pointtracker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="34" selection-start="7363" selection-end="7363" vertical-scroll-proportion="81.73077">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/static/js/pointtracker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="945" column="85" selection-start="46686" selection-end="46686" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="0" selection-start="7789" selection-end="7789" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/usairways.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="93" selection-start="5048" selection-end="5048" vertical-scroll-proportion="2.372093">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="390" column="1" selection-start="14724" selection-end="14724" vertical-scroll-proportion="0.7075099">
+        <state line="666" column="56" selection-start="32018" selection-end="32018" vertical-scroll-proportion="2.3884296">
           <folding />
         </state>
       </provider>
