@@ -333,7 +333,7 @@ function Display_PointTracker_Account  () {
                     tablecontents += '<a href = "http://www.evaair.com/"><img src="static/graphics/eva_air_logo_small.png" alt="eva_air logo" align="center" height="25" width="25" ></a>';
                 }
                 if (program_account['RP_name'] == 'Southwest Airlines') {
-                    tablecontents += '<a href = "http://www.southwest.com/"><img src="static/graphics/southwest_logo_small.png" alt="Southwest Airlines logo" align="center" height="25" width="25" ></a>';
+                    tablecontents += '<a href = "http://www.southwest.com/"><img src="static/graphics/Southwest_Airlines_logo_small.png" alt="Southwest Airlines logo" align="center" height="25" width="25" ></a>';
                 }
                 if (program_account['RP_name'] == 'Hilton Honors') {
                     tablecontents += '<a href = "http://hhonors3.hilton.com/en/index.html"><img src="static/graphics/hilton_honors_logo_small.png" alt="Hilton Honors logo" align="center" height="25" width="25" ></a>';
@@ -359,13 +359,13 @@ function Display_PointTracker_Account  () {
                     tablecontents += '<a href = "/Sky_Team"><img src="static/graphics/sky_team_small.png" alt="Sky Team Logo" align="center" height="25" width="25" ></a>';
                 }
                 if (program_account['RP_partner'] == 'Rapid Rewards') {
-                    tablecontents += '<a href = "http://www.southwest.com/"><img src="static/graphics/rapid_rewards_logo_small.png" alt="Sky Team Logo" align="center" height="25" width="25" ></a>';
+                    tablecontents += '<a href = "http://www.southwest.com"><img src="static/graphics/rapid_rewards_logo_small.png" alt="Rapid RewardsLogo" align="center" height="25" width="25" ></a>';
                 }
                 if (program_account['RP_partner'] == 'Hilton Honors') {
-                    tablecontents += '<a href = "http://hhonors3.hilton.com/en/index.html"><img src="static/graphics/hilton_honors_logo_small.png" alt="Sky Team Logo" align="center" height="25" width="25" ></a>';
+                    tablecontents += '<a href = "http://hhonors3.hilton.com/en/index.html"><img src="static/graphics/hilton_honors_logo_small.png" alt="Hilton Honors Logo" align="center" height="25" width="25" ></a>';
                 }
                 if (program_account['RP_partner'] == 'Marriott Rewards') {
-                    tablecontents += '<a href = "http://www.marriott.com/rewards/rewards-program.mi"><img src="static/graphics/marriott_rewards_logo_small.png" alt="Sky Team Logo" align="center" height="25" width="25" ></a>';
+                    tablecontents += '<a href = "http://www.marriott.com/rewards/rewards-program.mi"><img src="static/graphics/marriott_rewards_logo_small.png" alt="Marriott Rewards Logo" align="center" height="25" width="25" ></a>';
                 }
 
                 tablecontents += "</td>";

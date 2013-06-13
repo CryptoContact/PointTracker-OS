@@ -94,7 +94,7 @@ def scrape_webpage(html):
         last_activity_date_obj = datetime.strptime(RP_last_activity_date[2],"%d-%b-%y")          #last activity date object
         RP_account['RP_last_activity_date']= last_activity_date_obj.strftime('%m/%d/%Y')
 
-        exp_date = last_activity_date_obj + timedelta(days=730)                                  #add 2 years from last activity to get expiration date
+        exp_date = last_activity_date_obj + timedelta(days=365)                                  #add 2 years from last activity to get expiration date
         RP_account['RP_expiration_date']= exp_date.strftime('%m/%d/%Y')
 
         days_left = exp_date - now_date_obj                                              #still in date object format
