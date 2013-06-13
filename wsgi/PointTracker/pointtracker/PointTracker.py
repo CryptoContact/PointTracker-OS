@@ -27,6 +27,9 @@ import airline_scrapers.britishairways
 import airline_scrapers.delta
 import airline_scrapers.usairways
 import airline_scrapers.evaair
+import airline_scrapers.southwest
+import airline_scrapers.hiltonhonors
+import airline_scrapers.marriottrewards
 #from ptserver import AES_Key
 
 import mtk              #Mike's toolkit
@@ -715,6 +718,18 @@ def Process_Reward_Program(key, RP_account):
     elif RP_account['RP_name'] == 'EVA Air':
         html = airline_scrapers.evaair.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
         RP_updated_account = airline_scrapers.evaair.scrape_webpage(html)
+
+    elif RP_account['RP_name'] == 'Southwest Airlines':
+        html = airline_scrapers.southwest.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+        RP_updated_account = airline_scrapers.southwest.scrape_webpage(html)
+
+    elif RP_account['RP_name'] == 'Hilton Honors':
+        html = airline_scrapers.hiltonhonors.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+        RP_updated_account = airline_scrapers.hiltonhonors.scrape_webpage(html)
+
+    elif RP_account['RP_name'] == 'Marriott Rewards':
+        html = airline_scrapers.marriottrewards.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+        RP_updated_account = airline_scrapers.marriottrewards.scrape_webpage(html)
 
     RP_updated_account['RP_callback_tag'] = RP_account['RP_callback_tag']                       #we still need this info for the call back
     RP_updated_account['RP_name'] = RP_account['RP_name']
