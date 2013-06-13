@@ -49,25 +49,34 @@
       <file leaf-file-name="PointTracker.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="723" column="0" selection-start="30424" selection-end="30424" vertical-scroll-proportion="0.0">
+            <state line="727" column="0" selection-start="30718" selection-end="30718" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="southwest.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="southwest.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/southwest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="0" selection-start="4659" selection-end="4659" vertical-scroll-proportion="0.33333334">
+            <state line="104" column="0" selection-start="4659" selection-end="4659" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hiltonhonors.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FAQ.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pointtracker/templates/FAQ.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="145" column="32" selection-start="5180" selection-end="5180" vertical-scroll-proportion="-16.346153">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hiltonhonors.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/hiltonhonors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="62" selection-start="4550" selection-end="4550" vertical-scroll-proportion="0.0">
+            <state line="77" column="0" selection-start="3018" selection-end="3018" vertical-scroll-proportion="0.33333334">
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -115,7 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pointtracker/Globalvars.py" />
         <option value="$PROJECT_DIR$/pointtracker/views.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/britishairways.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/delta.py" />
@@ -128,9 +136,10 @@
         <option value="$PROJECT_DIR$/pointtracker/templates/pointtracker.html" />
         <option value="$PROJECT_DIR$/pointtracker/PointTracker.py" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/marriottrewards.py" />
-        <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/hiltonhonors.py" />
         <option value="$PROJECT_DIR$/pointtracker/static/js/pointtracker.js" />
         <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/southwest.py" />
+        <option value="$PROJECT_DIR$/pointtracker/templates/FAQ.html" />
+        <option value="$PROJECT_DIR$/pointtracker/airline_scrapers/hiltonhonors.py" />
       </list>
     </option>
   </component>
@@ -195,6 +204,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pointtracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PointTracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PointTracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pointtracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -553,14 +580,14 @@
           <option name="timeStamp" value="447" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/pointtracker/airline_scrapers/hiltonhonors.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="462" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/pointtracker/airline_scrapers/marriottrewards.py</url>
           <line>131</line>
           <option name="timeStamp" value="472" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/pointtracker/airline_scrapers/hiltonhonors.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="483" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -570,15 +597,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="483" />
+      <option name="time" value="484" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pointtracker/static/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="142" column="0" selection-start="6195" selection-end="6522" vertical-scroll-proportion="-7.8461537" />
@@ -634,25 +656,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/hiltonhonors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="62" selection-start="4550" selection-end="4550" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/marriottrewards.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="133" column="0" selection-start="6022" selection-end="6060" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="723" column="0" selection-start="30424" selection-end="30424" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -673,8 +679,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/southwest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="0" selection-start="4659" selection-end="4659" vertical-scroll-proportion="0.33333334">
+        <state line="104" column="0" selection-start="4659" selection-end="4659" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/templates/FAQ.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="32" selection-start="5180" selection-end="5180" vertical-scroll-proportion="-16.346153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/PointTracker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="727" column="0" selection-start="30718" selection-end="30718" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pointtracker/airline_scrapers/hiltonhonors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="0" selection-start="3018" selection-end="3018" vertical-scroll-proportion="0.33333334">
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

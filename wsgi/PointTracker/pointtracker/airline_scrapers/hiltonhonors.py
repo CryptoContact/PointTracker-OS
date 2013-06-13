@@ -62,7 +62,7 @@ def scrape_webpage(html):
         RP_account['RP_error'] = True
         return RP_account
 
-    RP_account_name = RP_account_name_list[2]                                       #name is 3rd item
+    RP_account_name = str(RP_account_name_list[2])                                       #name is 3rd item
 
     RP_account_num = str(soup.find('span', class_='acct_number'))                     #account #
     RP_balance = str(soup.find('a', class_ = 'Points'))                             #balance
