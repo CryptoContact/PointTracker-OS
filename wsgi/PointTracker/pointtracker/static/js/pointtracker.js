@@ -533,6 +533,8 @@ $(document).on("click","#DSA_Delete_Modal_Button", function Confirm_Sub_Account(
 //Adds a Reward Program to the desired sub account.
 //
 function Add_Reward_Program(PT_THIS) {
+
+
     var $Add_Reward_Program_Verify_Tag2 = "#Add_Reward_Program_Verify_Tag2";                // Insert Button modal configuration in html here
     var $Add_Reward_Program_Modal = "#Add_Reward_Program_Modal";
 
@@ -1081,7 +1083,21 @@ $(document).on("click","#SPT_Submit_Modal_Button", function () {
 
 
 
-
+function Detect_Mobile_Browser() {
+ if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+    return true;
+  }
+ else {
+    return false;
+  }
+}
 
 
 
