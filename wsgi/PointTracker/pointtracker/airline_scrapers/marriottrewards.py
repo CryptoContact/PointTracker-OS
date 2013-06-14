@@ -10,7 +10,9 @@ import ssladapter
 #from ptserver import AES_Key
 #from constants import AES_Key
 import Globalvars
-
+from Globalvars import NO_ERROR as NO_ERROR
+from Globalvars import LOGIN_ERROR as LOGIN_ERROR
+from Globalvars import SCRAPER_ERROR as SCRAPER_ERROR
 
 
 
@@ -97,34 +99,23 @@ def scrape_webpage(html):
 
     RP_account_info = str(soup.find('div', id='my-account-container'))                            #name & balance
 
-    RP_account['RP_error'] = False                                              #clear any error so we can test again
+    RP_account['RP_error'] = NO_ERROR                                              #clear any error so we can test again
     if RP_account_info == 'None':                                                       #Bad username, password, or general error from server.
-        RP_account['RP_error'] = True
+        RP_account['RP_error'] = LOGIN_ERROR
         return RP_account
 
-    RP_last_activity_date = 'None'                                                    #Last Activity date is N/A
+    RP_last_activity_date = str(soup.find('div', id="my-account-accordion"))                        #Last Activity date
 
     RP_account_info = RP_account_info.replace('\n','')                                   #clean up string for easier searching
     RP_account_info = RP_account_info.replace('\r','')
     RP_account_info = RP_account_info.replace('\t','')
 
-#    s_index = RP_account_num.find('<strong>')
-#    e_index = RP_account_num.find('</strong>')
-#    RP_account_num =  RP_account_num[s_index+len('<strong>'):e_index]                           #cut out everything between the 2 <strong>
-#    RP_account['RP_account_num'] = RP_account_num                                               #account num
-#
-
-
     RP_account_name = RP_account_info                                                           #get the name out of here
     s_index = RP_account_name.find('<dd>')
     e_index = RP_account_name.find('</dd>')
     RP_account_name =  RP_account_name[s_index+len('<dd>'):e_index]                           #cut out everything between the 2 <dd>
-#    RP_account_name = RP_account_name.replace('<h1 class="welcome1" id="welcomeLabel">Welcome to your Executive Club, ','')              #remove first part of tag
-#    RP_account_name = RP_account_name.replace('</h1>','')                                                                               #remove second part of tag to leave only name
     RP_account['RP_account_name']= RP_account_name                                                                                      # name is only left
 
-#    RP_account_num = RP_account_num.replace('<td class="detailsStyle"><strong>','')                        #remove first part of tag
-#    RP_account_num = RP_account_num.replace('</strong></td>','')                                            #remove second part of tag to leave only name
     RP_account['RP_account_num']= ''                                                           #N/A available from html for now
 
     RP_balance = RP_account_info                                                                #Balance is in this string
@@ -132,26 +123,34 @@ def scrape_webpage(html):
     RP_balance = RP_balance[s_index:]                                                           #chop off everything before balance
     s_index = RP_balance.find('<dd>')                                                      #the balance is in between here
     e_index = RP_balance.find('</dd>')
-    RP_balance =  RP_balance[s_index+len('<dd>'):e_index]                           #cut out everything between the 2 <dd>
-    RP_balance = RP_balance.replace(' points','')                        #remove first part of tag
+    RP_balance =  RP_balance[s_index+len('<dd>'):e_index]                                           #cut out everything between the 2 <dd>
+    RP_balance = RP_balance.replace(' points','')                                               #remove
+    RP_balance = RP_balance.replace(',','')                                                         #remove commas
     RP_account['RP_balance']= int(RP_balance)                                                       #balance is only left
 
     now_date_obj = datetime.now()
 
-    if RP_last_activity_date == 'None':                                                            #no transactions or activity
-        RP_account['RP_last_activity_date']= 'N/A'
-        RP_account['RP_days_remaining']= 'N/A'
-        RP_account['RP_expiration_date']= 'Never Expire'
-    else:
-        RP_last_activity_date = RP_last_activity_date.split()                                   #split out the string.  date is 3rd item
-        last_activity_date_obj = datetime.strptime(RP_last_activity_date[2],"%d-%b-%y")          #last activity date object
+#    if not RP_last_activity_date :                                                            #no transactions or activity
+    RP_account['RP_last_activity_date']= 'N/A'
+    RP_account['RP_days_remaining']= 'N/A'
+    RP_account['RP_expiration_date']= 'Never Expire'
+#    else:
+    RP_last_activity_date = RP_last_activity_date.replace('\n','')                                                         #remove commas
+    RP_last_activity_date = RP_last_activity_date.replace('\t','')                                                         #remove commas
+    RP_last_activity_date = RP_last_activity_date.replace('\r','')                                                         #remove commas
+    s_index = RP_last_activity_date.find('Last transaction')
+    RP_last_activity_date = RP_last_activity_date[s_index:]                                         #remove everything up to that
+
+    if not RP_last_activity_date[21:27] == '<p>Our':                                                #if it's equal to <p>Our there is no last transaction
+        s_index = RP_last_activity_date.find('<li>')
+        e_index = RP_last_activity_date.find('</li>')
+        RP_last_activity_date =  RP_last_activity_date[s_index+len('<li>'):e_index]                           #cut out everything between the 2 <strong>
+
+        last_activity_date_obj = datetime.strptime(RP_last_activity_date,"%m/%d/%Y")          #last activity date object
         RP_account['RP_last_activity_date']= last_activity_date_obj.strftime('%m/%d/%Y')
 
-        exp_date = last_activity_date_obj + timedelta(days=730)                                  #add 2 years from last activity to get expiration date
-        RP_account['RP_expiration_date']= exp_date.strftime('%m/%d/%Y')
-
-        days_left = exp_date - now_date_obj                                              #still in date object format
-        RP_account['RP_days_remaining']= days_left.days                               #how many days left to expiration
+#        RP_account['RP_expiration_date']= 'Never Expire'
+#        RP_account['RP_days_remaining']= ''                          #how many days left to expiration
 
 
     RP_account['RP_datestamp'] = str(now_date_obj.month) + '/' + str(now_date_obj.day) + '/' + str(now_date_obj.year)

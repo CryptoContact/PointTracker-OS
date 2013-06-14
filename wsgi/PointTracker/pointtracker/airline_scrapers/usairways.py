@@ -7,6 +7,9 @@ from datetime import timedelta
 #from ptserver import AES_Key
 #from constants import AES_Key
 import Globalvars
+from Globalvars import NO_ERROR as NO_ERROR
+from Globalvars import LOGIN_ERROR as LOGIN_ERROR
+from Globalvars import SCRAPER_ERROR as SCRAPER_ERROR
 
 #from ssl import PROTOCOL_SSLv2
 from ssl import PROTOCOL_SSLv3
@@ -69,7 +72,7 @@ def get_program_account_info(key, RP_account):
     headers2 = {
 
         'Host':'membership.usairways.com',
-        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0',
+        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.5',
         'Accept-Encoding': 'gzip, deflate',
@@ -77,10 +80,33 @@ def get_program_account_info(key, RP_account):
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         'Referer': 'https://membership.usairways.com/Manage/YourMiles.aspx',
-        'Content-Length': '22329',
+        'Content-Length': '23028',
         'Connection': 'keep-alive',
         'Pragma': 'no-cache',
         }
+
+
+
+    headers3 = {
+        'Host':'membership.usairways.com',
+        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0',
+        'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language':'en-US,en;q=0.5',
+        'Accept-Encoding':'gzip, deflate',
+        'X-MicrosoftAjax':'Delta=true',
+        'Cache-Control':'no-cache',
+        'Content-Type':'application/x-www-form-urlencoded; charset=utf-8',
+        'Referer':'https://membership.usairways.com/Manage/YourMiles.aspx',
+        'Content-Length':'23028',
+#        'Cookie':'TLTUID=F5D274924B13819DC6C2B4A40C8D0132; utag_main=_st:1371242531365$ses_id:1371241178681%3Bexp-session; ASP.NET_SessionId=uknokpqwmchuz145chfqhx45; TLTSID=CEBFF652495D35A562C6C199AC46C4DF; s_cc=true; s_ria=flash%2011%7Csilverlight%205.1; s_sq=usaircom%3D%2526pid%253DYourMiles%2526pidt%253D1%2526oid%253Djavascript%25253AWebForm_DoPostBackWithOptions(new%25252520WebForm_PostBackOptions(%252522ctl00%252524phMain%252524yourMileModule%252524%2526ot%253DA; .USAairTicket=010158BCD0BF5237D008FEFF3F37F47528CA2B000A6C0069006E00640061006100620062006F007400AA015500730065007200490044003D00390062003600360032006300610034002D0033003200640030002D0034003200370061002D0061006100350034002D00380036006500310066003300390039003000620034006400260055007300650072004E0061006D0065003D006C0069006E00640061006100620062006F0074002600460069007200730074004E0061006D0065003D004C0049004E004400410026004C006100730074004E0061006D0065003D0054004800410043004B004500520026004D0069006C00650073003D003100300030003000370026005300740061007400750073003D004E006F0072006D0061006C0026004E0075006D006200650072003D004400390036003800450032003000260044004D005F00420045004E00450046004900540053005F004B0045005900260044004D00420065006E00650066006900740073003D00460061006C0073006500012F00FF; .USAairTicket_UC=010158BCD0BF5237D008FEFF3F37F47528CA2B0107440039003600380045003200300000012F00FF; .USAairTicket_Content=name=LINDA THACKER&miles=10007&status=Normal&number=D968E20&hasActiveDMBenefits=False',
+        'Connection':'keep-alive',
+        'Pragma':'no-cache'
+        }
+
+
+
+
+
 
 
 
@@ -121,7 +147,7 @@ def get_program_account_info(key, RP_account):
     form_data2['ctl00$phMain$yourMileModule$ctl00$startDate$SelectedDate'] = date_start_str                 #begin last activity search at this date
     form_data2['ctl00$phMain$yourMileModule$ctl00$endDate$SelectedDate'] = date_end_str                     #end it today. This should search the last 18 months + for any activity
 
-    s.headers = headers2                                    # set headers up for the Post ajax call. They are different for this POST Request
+    s.headers = headers3                                    # set headers up for the Post ajax call. They are different for this POST Request
     r4 = s.post(url3,data = form_data2)                    #setup dates, for last activity search STEP 1. This populates the html page with activity dates
     html_page_list = [r3.text,r4.text]
 
@@ -143,9 +169,9 @@ def scrape_webpage(html_page_list):
 
     RP_account_name = str(soup0.find('span', id='ctl00_phMain_yourMileModule_ctl00_lblName'))                            #name
 
-    RP_account['RP_error'] = False                                      #clear any error so we can test again
+    RP_account['RP_error'] = NO_ERROR                                      #clear any error so we can test again
     if RP_account_name == 'None':                                                      #Bad username, password, or general error from server.
-        RP_account['RP_error'] = True
+        RP_account['RP_error'] = LOGIN_ERROR
         return RP_account
 
     RP_account_num = str(soup0.find('table', class_='viewmilesinfo'))                                                     #account

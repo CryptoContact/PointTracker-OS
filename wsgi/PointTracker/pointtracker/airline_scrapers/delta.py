@@ -11,7 +11,9 @@ from datetime import datetime
 #from constants import AES_Key
 import Globalvars
 
-
+from Globalvars import NO_ERROR as NO_ERROR
+from Globalvars import LOGIN_ERROR as LOGIN_ERROR
+from Globalvars import SCRAPER_ERROR as SCRAPER_ERROR
 
 def get_program_account_info(key, RP_account):
 
@@ -76,9 +78,9 @@ def scrape_webpage(html_list):
     e_index= RP_account_num.find('"')
     RP_account_num = RP_account_num[:e_index]
 
-    RP_account['RP_error'] = False                                      #clear any error so we can test again
+    RP_account['RP_error'] = NO_ERROR                                     #clear any error so we can test again
     if RP_account_num == 'null':                                       #Bad username, password, or general error from server.
-        RP_account['RP_error'] = True
+        RP_account['RP_error'] = LOGIN_ERROR
         return RP_account
 
     RP_account['RP_account_num']= RP_account_num                        #account # is only left

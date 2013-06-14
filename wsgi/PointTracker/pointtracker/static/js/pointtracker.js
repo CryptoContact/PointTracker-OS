@@ -9,7 +9,9 @@ var Current_id;
 var Current_SA_id;
 var Current_RP_id;
 var Current_PT_account;
-
+var NO_ERROR = 0;
+var LOGIN_ERROR = 1;
+var SCRAPER_ERROR = 2;
 
 
 
@@ -160,10 +162,13 @@ function Display_Update_List_Item () {
             'success': function (RP_account) {                                               // call backback function return new updated program_account
                 var $RP_callback_tag = '#' + RP_account['RP_callback_tag'];
 
-                if (RP_account['RP_error'] == false) {              // True if error. False if good
+                if (RP_account['RP_error'] == NO_ERROR) {              // True if error. False if good
                     $($RP_callback_tag).html('<img src="/static/graphics/green_check_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name'] + '<br>');
                 }
-                else {
+                else if (RP_account['RP_error'] == LOGIN_ERROR) {
+                    $($RP_callback_tag).html('<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name']+ '<br>');
+                }
+                else if (RP_account['RP_error'] == SCRAPER_ERROR) {
                     $($RP_callback_tag).html('<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name']+ '<br>');
                 }
                 PT_Update_List_Index++;                         // Get next item i
@@ -609,17 +614,24 @@ $(document).on("click","#ARP_Submit_Modal_Button", function () {
                 'success': function (RP_account) {                               // callback function return new updated program_account
                     $($Add_Reward_Program_Verify_Tag1).empty();
                     $($Add_Reward_Program_Verify_Tag2).empty();
-                    if (RP_account['RP_error'] == false) {              // True if error. False if good
+                    if (RP_account['RP_error'] == NO_ERROR) {              // True if error. False if good
                         $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center">' + '<img src="/static/graphics/green_check_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
                         $($Add_Reward_Program_Verify_Tag2).append('<button class="btn btn-info" data-dismiss="modal">OK</button>');
                     }
-                    else {
+                    else if (RP_account['RP_error'] == LOGIN_ERROR) {
                         $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
                         $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center; color:#ff0000">Login error. Please verify Program, Username and Password</div>');
                         $($Add_Reward_Program_Verify_Tag2).append('<button id="ARP_Submit_Modal_Button" class="btn btn-info">Submit</button>');
                         $($Add_Reward_Program_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
                         return;                             // return early and don't call Display_PointTracker_Account
                     }
+                    else if (RP_account['RP_error'] == SCRAPER_ERROR) {
+                        $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
+                        $($Add_Reward_Program_Verify_Tag1).append('<div class="ARP_alert" style ="text-align:center; color:#ff0000">Scraping Error. There was a problem getting your data from the website.<br>Please try logging into the website and clear any advisory information and try again here.</div>');
+                        $($Add_Reward_Program_Verify_Tag2).append('<button id="ARP_Submit_Modal_Button" class="btn btn-info">Submit</button>');
+                        $($Add_Reward_Program_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
+                        return;
+                }
                     Display_PointTracker_Account();                                     // update main page PointTracker Account
                 }
             });
@@ -703,14 +715,19 @@ $(document).on("click","#Refresh_Reward_Program_Button", function () {
                 $($RRP_row_id).empty();
                 $($Refresh_Reward_Program_Tag1).empty();
                 $($Refresh_Reward_Program_Tag2).empty();
-                if (RP_account['RP_error'] == false) {                      // True if error. False if good
+                if (RP_account['RP_error'] == NO_ERROR) {                      // True if error. False if good
                     $($Refresh_Reward_Program_Tag2).append('<button class="btn btn-info" data-dismiss="modal">OK</button>');
                     $($RRP_row_id).append('<div class="RRP_alert" style ="text-align:left">' + '<img src="/static/graphics/green_check_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name'] + '</div>');
                     Display_PointTracker_Account();
                 }
-               else {
+               else if (RP_account['RP_error'] == LOGIN_ERROR) {
                     $($RRP_row_id).append('<div class="RRP_alert" style ="text-align:left">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name'] + '</div>');
                     $($Refresh_Reward_Program_Tag1).append('<div class="RRP_alert" style ="text-align:center; color:#ff0000"">Login error. Please verify Program, Username and Password</div>');
+                    $($Refresh_Reward_Program_Tag2).append('<button class="btn btn-info" data-dismiss="modal">OK</button>');
+                }
+               else if (RP_account['RP_error'] == SCRAPER_ERROR) {
+                    $($RRP_row_id).append('<div class="RRP_alert" style ="text-align:left">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + RP_account['RP_name'] + '</div>');
+                    $($Refresh_Reward_Program_Tag1).append('<div class="RRP_alert" style ="text-align:center; color:#ff0000"">Scraping Error. There was a problem getting your data from the website.<br>Please try logging into the website and clear any advisory information and try again here.</div>');
                     $($Refresh_Reward_Program_Tag2).append('<button class="btn btn-info" data-dismiss="modal">OK</button>');
                 }
         }
@@ -801,14 +818,20 @@ $(document).on("click","#ERP_Submit_Modal_Button", function () {
             'success': function (RP_account) {                               // call backback function return new updated program_account
                 $($Edit_Reward_Program_Verify_Tag1).empty();
                 $($Edit_Reward_Program_Verify_Tag2).empty();
-                if (RP_account['RP_error'] == false) {                      // True if error. False if good
+                if (RP_account['RP_error'] == NO_ERROR) {                      // True if error. False if good
                     $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center">' + '<img src="/static/graphics/green_check_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
                     $($Edit_Reward_Program_Verify_Tag2).append('<button class="btn btn-info" data-dismiss="modal">OK</button>');
                     Display_PointTracker_Account();                                     // update main page PointTracker Account
                 }
-                else {
+                else if (RP_account['RP_error'] == LOGIN_ERROR) {                      // True if error. False if good
                     $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
                     $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center; color:#ff0000"">Login error. Please verify Program, Username and Password</div>');
+                    $($Edit_Reward_Program_Verify_Tag2).append('<button id="ERP_Submit_Modal_Button" class="btn btn-info">Submit</button>');
+                    $($Edit_Reward_Program_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
+                }
+                else if (RP_account['RP_error'] == SCRAPER_ERROR) {                      // True if error. False if good
+                    $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center">' + '<img src="/static/graphics/red_x_small.png" alt="airline partner"  height="20" width="20" >'+ ' ' + PT_obj['RP_name'] + '</div>');
+                    $($Edit_Reward_Program_Verify_Tag1).append('<div class="ERP_alert" style ="text-align:center; color:#ff0000"">Scraper Error. There was a problem getting your data from the website.<br>Please try logging into website and clear any advisory information and try again here.</div>');
                     $($Edit_Reward_Program_Verify_Tag2).append('<button id="ERP_Submit_Modal_Button" class="btn btn-info">Submit</button>');
                     $($Edit_Reward_Program_Verify_Tag2).append('<button class="btn" data-dismiss="modal">Cancel</button>');
                 }

@@ -10,7 +10,9 @@ import ssladapter
 #from constants import AES_Key
 import Globalvars
 
-
+from Globalvars import NO_ERROR as NO_ERROR
+from Globalvars import LOGIN_ERROR as LOGIN_ERROR
+from Globalvars import SCRAPER_ERROR as SCRAPER_ERROR
 
 
 
@@ -54,9 +56,9 @@ def scrape_webpage(html):
 
     RP_account_name = str(soup.find('h1', id='welcomeLabel'))                            #name
 
-    RP_account['RP_error'] = False                                              #clear any error so we can test again
+    RP_account['RP_error'] = NO_ERROR                                             #clear any error so we can test again
     if RP_account_name == 'None':                                                       #Bad username, password, or general error from server.
-        RP_account['RP_error'] = True
+        RP_account['RP_error'] = LOGIN_ERROR
         return RP_account
 
     RP_account_num = str(soup.find('td', class_='detailsStyle'))                     #account #

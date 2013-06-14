@@ -49,7 +49,9 @@ from email.mime.image import MIMEImage
 
 import base64
 
-
+from Globalvars import NO_ERROR as NO_ERROR
+from Globalvars import LOGIN_ERROR as LOGIN_ERROR
+from Globalvars import SCRAPER_ERROR as SCRAPER_ERROR
 
 
 
@@ -695,46 +697,52 @@ def Delete_Sub_Account(PT_obj):
 
 
 def Process_Reward_Program(key, RP_account):
-    if RP_account['RP_name'] == 'American Airlines':
-        html = airline_scrapers.american.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.american.scrape_webpage(html)
+    try:
+        if RP_account['RP_name'] == 'American Airlines':
+            html = airline_scrapers.american.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.american.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'United Airlines':
-        html = airline_scrapers.united.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.united.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'United Airlines':
+            html = airline_scrapers.united.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.united.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'Delta Airlines':
-        html = airline_scrapers.delta.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.delta.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'Delta Airlines':
+            html = airline_scrapers.delta.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.delta.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'US Airways':
-        html = airline_scrapers.usairways.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.usairways.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'US Airways':
+            html = airline_scrapers.usairways.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.usairways.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'British Airways':
-        html = airline_scrapers.britishairways.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.britishairways.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'British Airways':
+            html = airline_scrapers.britishairways.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.britishairways.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'EVA Air':
-        html = airline_scrapers.evaair.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.evaair.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'EVA Air':
+            html = airline_scrapers.evaair.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.evaair.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'Southwest Airlines':
-        html = airline_scrapers.southwest.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.southwest.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'Southwest Airlines':
+            html = airline_scrapers.southwest.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.southwest.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'Hilton Honors':
-        html = airline_scrapers.hiltonhonors.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.hiltonhonors.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'Hilton Honors':
+            html = airline_scrapers.hiltonhonors.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.hiltonhonors.scrape_webpage(html)
 
-    elif RP_account['RP_name'] == 'Marriott Rewards':
-        html = airline_scrapers.marriottrewards.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
-        RP_updated_account = airline_scrapers.marriottrewards.scrape_webpage(html)
+        elif RP_account['RP_name'] == 'Marriott Rewards':
+            html = airline_scrapers.marriottrewards.get_program_account_info(key, RP_account)                                 #login and grab necessary web pages to scrape
+            RP_updated_account = airline_scrapers.marriottrewards.scrape_webpage(html)
+
+    except Exception as e:                                                                          #got a error in scraping webpage due to webpage changing or pop up
+        RP_account['RP_error'] = SCRAPER_ERROR
+        return RP_account
 
     RP_updated_account['RP_callback_tag'] = RP_account['RP_callback_tag']                       #we still need this info for the call back
     RP_updated_account['RP_name'] = RP_account['RP_name']
     RP_updated_account['RP_id'] = RP_account['RP_id']
     RP_updated_account['SA_id'] = RP_account['SA_id']
+
 
     if not RP_updated_account['RP_error']:                              # No Error so finish the last steps
         RP_updated_account['RP_username'] = RP_account['RP_username']         #put username and password back in new dict

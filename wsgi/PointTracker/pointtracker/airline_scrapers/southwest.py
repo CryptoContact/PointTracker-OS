@@ -11,16 +11,19 @@ import ssladapter
 #from constants import AES_Key
 import Globalvars
 
-
+from Globalvars import NO_ERROR as NO_ERROR
+from Globalvars import LOGIN_ERROR as LOGIN_ERROR
+from Globalvars import SCRAPER_ERROR as SCRAPER_ERROR
 
 
 
 def get_program_account_info(key,RP_account):
     url0 = 'http://www.southwest.com'
     url1 = 'https://www.southwest.com/flight/login?loginEntryPoint=RIGHT_NAV'
+    url2 = 'http://www.southwest.com/?disc=pdc%3A1371236704.937000%3A4G6UH5TbTDGEwVVtUsdryA%40060B0C295C6D9BB9884D6F7021DF55EA7A85EC42&ss=1&int=&companyName=&cid='
 
     ###################### make sure the below url works for everybody
-    url2 = 'http://www.southwest.com/account/rapidrewards/rewards-activity?ss=0&disc=sdc%3A1371157501.405000%3AITmFA6VzTLipGBuYrJQ6iQ%402D8368B45DE35E2B2DD6EC246FA9B06D9458AA5B'
+    url3 = 'http://www.southwest.com/account/rapidrewards/rewards-activity'
 
     form_data = {
                 '_rememberMe':'on',
@@ -36,6 +39,17 @@ def get_program_account_info(key,RP_account):
 
 
 
+    form_data2 ={
+            '_categories':['on','on','on','on','on','on','on','on'],
+            'categories':['AIR','CAR','HOTEL','CREDIT','DINING','RETAIL','OTHER','APLUS'],
+            'formToken':'',
+            'month':'0',                                            #0 = Current year to date,  #-1 = previous year,  1-12 is exact month
+            'pointAccrualType':'ALL',
+            'update':'Update'
+            }
+
+
+
 
 
     form_data['credential'] = RP_account['RP_username']
@@ -43,39 +57,55 @@ def get_program_account_info(key,RP_account):
 
     s = requests.Session()
     s.mount('https://', ssladapter.SSLAdapter(ssl_version = PROTOCOL_TLSv1))
-    r1 = s.get(url0)                                      #Southwest Home Page. Grab any initial cookies and headers
+    r0 = s.get(url0)                                      #Southwest Home Page. Grab any initial cookies and headers
 #    #    mtk.write_file(r1.text,'ba1.txt')
 
     r1 = s.post(url1, data = form_data)                    #Login in to Southwest
 #    mtk.write_file(r1.text,'hiltonhonors.dng')
+#    mtk.display_webpage(r1.text)
 
-    r2 = s.get(url2)                                      #Southwest Home Page. Grab any initial cookies and headers
-
+#    r2 = s.get(url2)                                      #Southwest Home Page. Grab any initial cookies and headers
 #    mtk.display_webpage(r2.text)
-    return r2.text
+
+#    r3 = s.get(url3)                                      #Southwest Home Page. Grab any initial cookies and headers
+#    mtk.display_webpage(r3.text)
+
+    form_data2['month'] = 0                            #current year to date activity
+    r4 = s.post(url3, data = form_data2)                                      #Current Year to date activity
+#    mtk.display_webpage(r4.text)
+    form_data2['month'] = -1                            #previous year activity
+    r5 = s.post(url3, data = form_data2)                                      #Current Year to date activity
+
+    return [r4.text,r5.text]
 
 
 
 
 
 
-def scrape_webpage(html):
+def scrape_webpage(html_list):
+    #both lists have same basic info but different activities data. Need to check first and if no activity then check 2nd
     RP_account = dict()
 
-    soup = BeautifulSoup(html,"lxml")
-#    mtk.write_file(str(s),'basoup.txt')
+    soup = BeautifulSoup(html_list[0],"lxml")                           #first
+#    mtk.write_file(str(soup),'southwest.dng')
 
-    RP_account_name_list = soup.find_all('h3')                           #name in in 2nd element
+    RP_account_num = str(soup.find('div', id='account_bar_rr_number'))                     #account #
 
-    RP_account['RP_error'] = False                                              #clear any error so we can test again
-    if RP_account_name_list == 'None':                                                       #Bad username, password, or general error from server.
-        RP_account['RP_error'] = True
+    RP_account['RP_error'] = NO_ERROR                                              #clear any error so we can test again
+    if RP_account_num == 'None':                                                       #Bad username, password, or general error from server.
+        RP_account['RP_error'] = LOGIN_ERROR
         return RP_account
 
+    RP_account_name_list = soup.find_all('h3')                           #name in in 2nd element
     RP_account_name = str(RP_account_name_list[1])                                           #name is in here
-    RP_account_num = str(soup.find('div', id='account_bar_rr_number'))                     #account #
+#    RP_account_num = str(soup.find('div', id='account_bar_rr_number'))                     #account #
     RP_balance = str(soup.find('div', class_ = 'availablePointsNumber'))                          #balance
-    RP_last_activity_date = str(soup.find('td', class_ ='postingDate'))                          #Last Activity date
+
+    RP_last_activity_date = str(soup.find('td', class_ ='postingDate'))                          #Try first page for last activity
+    if RP_last_activity_date == 'None':
+        soup = BeautifulSoup(html_list[1],"lxml")                                                   #try 2nd activity
+        RP_last_activity_date = str(soup.find('td', class_ ='postingDate'))                          #Last Activity date
 
     RP_account_name = RP_account_name.replace('<h3><strong><!--mp_trans_disable_start -->','')              #remove first part of tag
     e_index = RP_account_name.find('<!--')
