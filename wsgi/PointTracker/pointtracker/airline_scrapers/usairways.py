@@ -63,31 +63,13 @@ def get_program_account_info(key, RP_account):
         'ctl00$phMain$yourMileModule$ctl00$endDate$SelectedDate':'',                                 # fill in below. format '4/30/2013',
         'ctl00$siteSearch$dummySpq':'',
         'ctl00$siteSearch$spq':'',
-        'ctl00_MasterScriptManager_HiddenField':';;AjaxControlToolkit, Version=3.0.20820.12087, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:e73c8192-d501-4fd7-a3b9-5354885de87b:91bd373d;',
+        'ctl00_MasterScriptManager_HiddenField':';;AjaxControlToolkit, Version=3.0.20820.12087, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:e73c8192-d501-4fd7-a3b9-5354885de87b:91bd373d',
         }
 
 
 
 
     headers2 = {
-
-        'Host':'membership.usairways.com',
-        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Accept-Encoding': 'gzip, deflate',
-        'X-MicrosoftAjax': 'Delta=true',
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-        'Referer': 'https://membership.usairways.com/Manage/YourMiles.aspx',
-        'Content-Length': '23028',
-        'Connection': 'keep-alive',
-        'Pragma': 'no-cache',
-        }
-
-
-
-    headers3 = {
         'Host':'membership.usairways.com',
         'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0',
         'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -97,8 +79,8 @@ def get_program_account_info(key, RP_account):
         'Cache-Control':'no-cache',
         'Content-Type':'application/x-www-form-urlencoded; charset=utf-8',
         'Referer':'https://membership.usairways.com/Manage/YourMiles.aspx',
-        'Content-Length':'23028',
-#        'Cookie':'TLTUID=F5D274924B13819DC6C2B4A40C8D0132; utag_main=_st:1371242531365$ses_id:1371241178681%3Bexp-session; ASP.NET_SessionId=uknokpqwmchuz145chfqhx45; TLTSID=CEBFF652495D35A562C6C199AC46C4DF; s_cc=true; s_ria=flash%2011%7Csilverlight%205.1; s_sq=usaircom%3D%2526pid%253DYourMiles%2526pidt%253D1%2526oid%253Djavascript%25253AWebForm_DoPostBackWithOptions(new%25252520WebForm_PostBackOptions(%252522ctl00%252524phMain%252524yourMileModule%252524%2526ot%253DA; .USAairTicket=010158BCD0BF5237D008FEFF3F37F47528CA2B000A6C0069006E00640061006100620062006F007400AA015500730065007200490044003D00390062003600360032006300610034002D0033003200640030002D0034003200370061002D0061006100350034002D00380036006500310066003300390039003000620034006400260055007300650072004E0061006D0065003D006C0069006E00640061006100620062006F0074002600460069007200730074004E0061006D0065003D004C0049004E004400410026004C006100730074004E0061006D0065003D0054004800410043004B004500520026004D0069006C00650073003D003100300030003000370026005300740061007400750073003D004E006F0072006D0061006C0026004E0075006D006200650072003D004400390036003800450032003000260044004D005F00420045004E00450046004900540053005F004B0045005900260044004D00420065006E00650066006900740073003D00460061006C0073006500012F00FF; .USAairTicket_UC=010158BCD0BF5237D008FEFF3F37F47528CA2B0107440039003600380045003200300000012F00FF; .USAairTicket_Content=name=LINDA THACKER&miles=10007&status=Normal&number=D968E20&hasActiveDMBenefits=False',
+        'Content-Length':'23425',
+        'Cookie':'',                                                                                             #must be set below
         'Connection':'keep-alive',
         'Pragma':'no-cache'
         }
@@ -106,21 +88,13 @@ def get_program_account_info(key, RP_account):
 
 
 
-
-
-
-
-#    AES_Key = '0123456789abcdef'
     form_data['ctl00$phMain$loginModule$ctl00$loginForm$UserName'] = RP_account['RP_username']
-#    form_data['ctl00$phMain$loginModule$ctl00$loginForm$Password'] = mtk.decrypt(Globalvars.AES_Key,RP_account['RP_password'])
     form_data['ctl00$phMain$loginModule$ctl00$loginForm$Password'] = mtk.decrypt(key,RP_account['RP_password'])
-#    form_data['ctl00$phMain$loginModule$ctl00$loginForm$Password'] = RP_account['RP_password']
-
-
 
 
     s = requests.Session()
     s.mount('https://', ssladapter.SSLAdapter(ssl_version = PROTOCOL_SSLv3))
+
     r1 = s.get(url1)                                      #USair Home Page
 
     r2 = s.post(url2, data = form_data)                    #Login in to usair
@@ -128,6 +102,7 @@ def get_program_account_info(key, RP_account):
     r3 = s.get(url3)                                      #Your Miles page #R3.text contains Name, Account #, Balance only
 
     soup1 = BeautifulSoup(r3.text,"lxml")                    #this page also has __VIEWSTATE and __EVENTVALIDATION that we need for the next post to get activity history
+#    mtk.write_file(r3.text,"usair.dng")
     __VIEWSTATE = str(soup1.find('input', id="__VIEWSTATE"))                            #name
     s_index = __VIEWSTATE.find('value="')
     __VIEWSTATE = __VIEWSTATE[s_index+len('value="'):-3]                               #take off 'value="' and ending html tag
@@ -144,16 +119,66 @@ def get_program_account_info(key, RP_account):
 
     form_data2['__VIEWSTATE'] = __VIEWSTATE                               #setup form data2
     form_data2['__EVENTVALIDATION'] = __EVENTVALIDATION
-    form_data2['ctl00$phMain$yourMileModule$ctl00$startDate$SelectedDate'] = date_start_str                 #begin last activity search at this date
-    form_data2['ctl00$phMain$yourMileModule$ctl00$endDate$SelectedDate'] = date_end_str                     #end it today. This should search the last 18 months + for any activity
+    form_data2['ctl00$phMain$yourMileModule$ctl00$startDate$SelectedDate'] = "6/1/2011" #date_start_str                 #begin last activity search at this date
+    form_data2['ctl00$phMain$yourMileModule$ctl00$endDate$SelectedDate'] = "06/19/2013" #date_end_str                     #end it today. This should search the last 18 months + for any activity
 
-    s.headers = headers3                                    # set headers up for the Post ajax call. They are different for this POST Request
+    cookie_dict = requests.utils.dict_from_cookiejar(s.cookies)
+    cookie_jar = requests.utils.cookiejar_from_dict(cookie_dict)
+    cookie_str = make_cookie_str(cookie_dict)
+    headers2['Cookie'] = cookie_str
+    s.headers = headers2
+
+
+#    add_cookie = {'_rest': {'HttpOnly':None},
+#               'comment':None,
+#               'comment_url':None,
+#               'discard':True,
+#               'domain':'.usairways.com',
+#               'domain_initial_dot':False,
+#               'domain_specified':True,
+#               'expires':None,
+#               'name':'Zcookie',
+#               'path':'/',
+#               'path_specified':True,
+#               'port':None,
+#               'port_specified':True,
+#               'rfc2109':False,
+#               'secure':False,
+#               'value':'the cookie works',
+#               'version':0
+#    }
+
+    add_cookie = {
+               'domain':'.usairways.com',
+               'expires':None,
+               'name':'.usairways.com',
+               'path':'/',
+               'value':'the cookie works',
+               'version':0
+    }
+
+
+
+
+    requests.utils.add_dict_to_cookiejar(s.cookies, add_cookie)
     r4 = s.post(url3,data = form_data2)                    #setup dates, for last activity search STEP 1. This populates the html page with activity dates
+
+
     html_page_list = [r3.text,r4.text]
 
     return html_page_list
 
 
+def make_cookie_str(cookie_dict):
+    cookie_string = ''
+    for key, value in cookie_dict.items():
+        if key != '.USAairTicket_UC':                           #leave this cookie out the string
+            cookie_string += key
+            cookie_string += '='
+            cookie_string += value
+            cookie_string += '; '
+    cookie_string = cookie_string[:len(cookie_string)-2]        #remove list '; "
+    return cookie_string
 
 
 
