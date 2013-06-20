@@ -17,6 +17,194 @@ from ssl import PROTOCOL_SSLv3
 #from ssl import PROTOCOL_TLSv1
 
 
+
+
+def get_program_account_info2(key, RP_account):
+    url1 = 'https://membership.usairways.com/Login.aspx?ReturnUrl=http:%2f%2fwww.usairways.com%2fdefault.aspx'
+    url2 = 'https://membership.usairways.com/Login.aspx?ReturnUrl=http%3a%2f%2fmembership.usairways.com%2fManage%2fAccountSummary.aspx'
+    url3 = 'https://membership.usairways.com/Manage/YourMiles.aspx'
+
+    form_data = {
+        'ctl00_MasterScriptManager_HiddenField':';;AjaxControlToolkit, Version=3.0.20820.12087, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:e73c8192-d501-4fd7-a3b9-5354885de87b:91bd373d',
+        '__EVENTTARGET':'ctl00$phMain$loginModule$ctl00$loginForm$Login',
+        '__EVENTARGUMENT':'',
+        '__VIEWSTATE':'/wEPDwUKMTA5ODg4NzU1NGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgUFImN0bDAwJHNpdGVTZWFyY2gkaW1hZ2VCdXR0b25TZWFyY2gFM2N0bDAwJHBoTWFpbiRsb2dpbk1vZHVsZSRjdGwwMCRsb2dpbkZvcm0kUmVtZW1iZXJNZQVDY3RsMDAkcGhNYWluJGxvZ2luU2VsZWN0b3IkbG9naW5Qb3BfdXBkYXRlcGFuZWwkbG9naW5QYW5lbCRyYk1lbWJlcgVJY3RsMDAkcGhNYWluJGxvZ2luU2VsZWN0b3IkbG9naW5Qb3BfdXBkYXRlcGFuZWwkbG9naW5QYW5lbCRyYkRpdmlkZW5NaWxlcwVJY3RsMDAkcGhNYWluJGxvZ2luU2VsZWN0b3IkbG9naW5Qb3BfdXBkYXRlcGFuZWwkbG9naW5QYW5lbCRyYkRpdmlkZW5NaWxlc+r/prZpmAiqcIRA+h9aRsENWijv',
+        '__EVENTVALIDATION':'/wEWFgLOtMH8CgLCofsTAtjMvdwHAtXknucGAujjiocHAqCH8rsOAu7i9EECgMvD2QsCw5Hg+QkCiqnDoAECk4Tb2gwCi5Gu1gwCib+M/gcC6PH6lgkCgrTrpg0C3d7kqwYCtZOp8ggCtJOp8ggCt5Op8ggCuvyDnAQCiNiTjg8CwLH96wLdkyC525uuAsWbOXbMZRh0tQ41Pg==',
+        'ctl00$siteSearch$dummySpq':'',
+        'ctl00$siteSearch$spq':'',
+        'ctl00$phMain$omnitureDynamicTagChoices$hdnOmnitureJavascriptTags':'',
+        'ctl00$phMain$loginModule$ctl00$loginForm$UserName':'',
+        'ctl00$phMain$loginModule$ctl00$loginForm$Password':'',
+        'ctl00$phMain$loginModule$ctl00$loginForm$RememberMe':'on',
+        'ctl00$phMain$loginSelector$loginPop_updatepanel$loginPanel$LoginType':'rbMember',
+        'ctl00$phMain$dmUpdatePrompt$dmUpdatePopUp_updatepanel$popOverPanelControl$rdoAcctUpdateOptions':'1',
+        }
+
+
+
+
+    form_data2 = {
+        '__ASYNCPOST':'true',
+        '__EVENTARGUMENT':'',
+        '__EVENTTARGET':'ctl00$phMain$yourMileModule$ctl00$btnSubmit',
+
+        '__VIEWSTATE':'',                                                                #fill below
+        '__EVENTVALIDATION':'',                                                         # fill below
+
+        'ctl00$MasterScriptManager':'ctl00$phMain$yourMileModule$ctl00$DividendMilesDetailPanel|ctl00$phMain$yourMileModule$ctl00$btnSubmit',
+
+        'ctl00$phMain$OmnitureDynamicTagControl$hdnOmnitureJavascriptTags':'',
+        'ctl00$phMain$yourMileModule$ctl00$cardOffer$OfferContainerDetails$EmailMailMeLater$popOverExtenderEmailEntry_updatepanel$emailPanel$txtEmailAddress':'',
+
+        'ctl00$phMain$yourMileModule$ctl00$chkPreferred':'on',
+        'ctl00$phMain$yourMileModule$ctl00$chkCarAndHotel':'on',
+        'ctl00$phMain$yourMileModule$ctl00$chkOther':'on',
+        'ctl00$phMain$yourMileModule$ctl00$chkAir':'on',
+        'ctl00$phMain$yourMileModule$ctl00$chkCreditCard':'on',
+        'ctl00$phMain$yourMileModule$ctl00$startDate$SelectedDate':'',                               # fill in below. format '1/1/2013',
+        'ctl00$phMain$yourMileModule$ctl00$endDate$SelectedDate':'',                                 # fill in below. format '4/30/2013',
+        'ctl00$siteSearch$dummySpq':'',
+        'ctl00$siteSearch$spq':'',
+        'ctl00_MasterScriptManager_HiddenField':';;AjaxControlToolkit, Version=3.0.20820.12087, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e:en-US:e73c8192-d501-4fd7-a3b9-5354885de87b:91bd373d',
+        }
+
+
+
+
+    headers2 = {
+        'Host':'membership.usairways.com',
+        'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0',
+        'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language':'en-US,en;q=0.5',
+        'Accept-Encoding':'gzip, deflate',
+        'X-MicrosoftAjax':'Delta=true',
+        'Cache-Control':'no-cache',
+        'Content-Type':'application/x-www-form-urlencoded; charset=utf-8',
+        'Referer':'https://membership.usairways.com/Manage/YourMiles.aspx',
+        'Content-Length':'23425',
+        'Cookie':'',                                                                                             #must be set below
+        'Connection':'keep-alive',
+        'Pragma':'no-cache'
+        }
+
+
+
+
+    form_data['ctl00$phMain$loginModule$ctl00$loginForm$UserName'] = RP_account['RP_username']
+    form_data['ctl00$phMain$loginModule$ctl00$loginForm$Password'] = mtk.decrypt(key,RP_account['RP_password'])
+
+
+    s = requests.Session()
+    s.mount('https://', ssladapter.SSLAdapter(ssl_version = PROTOCOL_SSLv3))
+
+    r1 = s.get(url1)                                      #USair Home Page
+
+    r2 = s.post(url2, data = form_data)                    #Login in to usair
+
+    r3 = s.get(url3)                                      #Your Miles page #R3.text contains Name, Account #, Balance only
+
+    soup1 = BeautifulSoup(r3.text,"lxml")                    #this page also has __VIEWSTATE and __EVENTVALIDATION that we need for the next post to get activity history
+#    mtk.write_file(r3.text,"usair.dng")
+    __VIEWSTATE = str(soup1.find('input', id="__VIEWSTATE"))                            #name
+    s_index = __VIEWSTATE.find('value="')
+    __VIEWSTATE = __VIEWSTATE[s_index+len('value="'):-3]                               #take off 'value="' and ending html tag
+
+    __EVENTVALIDATION = str(soup1.find('input', id='__EVENTVALIDATION'))                            #name
+    s_index = __EVENTVALIDATION.find('value="')                                 #take off 'value="' and ending html tag
+    __EVENTVALIDATION = __EVENTVALIDATION[s_index+len('value="'):-3]
+
+
+    date_end_str = datetime.now().strftime("%m/%d/%Y")             #get today's date as string
+    date_end_obj = datetime.now()                                             #get date/time stamp
+    date_start_obj = date_end_obj - timedelta(days=547)             #go back over 18 months to make sure  (18 * 31days = 558 days)
+    date_start_str = date_start_obj.strftime("%m/%d/%Y")            # convert to string
+
+    form_data2['__VIEWSTATE'] = __VIEWSTATE                               #setup form data2
+    form_data2['__EVENTVALIDATION'] = __EVENTVALIDATION
+    form_data2['ctl00$phMain$yourMileModule$ctl00$startDate$SelectedDate'] = "6/1/2011" #date_start_str                 #begin last activity search at this date
+    form_data2['ctl00$phMain$yourMileModule$ctl00$endDate$SelectedDate'] = "06/19/2013" #date_end_str                     #end it today. This should search the last 18 months + for any activity
+
+    cookie_dict = requests.utils.dict_from_cookiejar(s.cookies)
+    cookie_str = make_cookie_str(cookie_dict)
+    headers2['Cookie'] = cookie_str
+    s.headers = headers2
+
+
+#    add_cookie = {'_rest': {'HttpOnly':None},
+#               'comment':None,
+#               'comment_url':None,
+#               'discard':True,
+#               'domain':'.usairways.com',
+#               'domain_initial_dot':False,
+#               'domain_specified':True,
+#               'expires':None,
+#               'name':'Zcookie',
+#               'path':'/',
+#               'path_specified':True,
+#               'port':None,
+#               'port_specified':True,
+#               'rfc2109':False,
+#               'secure':False,
+#               'value':'the cookie works',
+#               'version':0
+#    }
+
+    my_cookie = {
+               'domain':'.usairways.com',
+               'expires':None,
+               'name':'COOKIE_NAME',
+               'path':'/',
+               'value':'the cookie works',
+               'version':0
+    }
+
+
+    requests.utils.add_dict_to_cookiejar(s.cookies, my_cookie)
+
+    cookie_dict = requests.utils.dict_from_cookiejar(s.cookies)
+    cookie_dict['TLTUID'] = 'A5D81E734642189E266C888157DFB3FE'
+    cookie_dict['TLTSID'] = '03C0B3074D1D22756FE20E93202DE72E'
+
+    cookie_dict['s_cc'] = 'true'
+    cookie_dict['s_ria'] = 'flash%2011%7Csilverlight%205.1'
+    cookie_dict['s_sq'] = 'usaircom=%26pid%3DYourMiles%26pidt%3D1%26oid%3Djavascript%253AWebForm_DoPostBackWithOptions(new%252520WebForm_PostBackOptions(%2522ctl00%2524phMain%2524yourMileModule%2524%26ot%3DA'
+#    cookie_dict['s_vi'] = '[CS]v1|2876FDDF05163419-4000017880037E29[CE]'
+
+    cookie_dict_master = {'.usairways.com':{'/':cookie_dict}}
+
+    cookie_jar = requests.utils.cookiejar_from_dict(cookie_dict)
+    cookie_jar_master = requests.utils.cookiejar_from_dict(cookie_dict_master)
+    s.cookies = cookie_jar
+
+#    cookie = __namedtuple(version=0,name='asp.net')
+
+#    requests.utils.add_dict_to_cookiejar(s.cookies, add_cookie)
+    try:
+        r4 = s.post(url3,data = form_data2)                    #setup dates, for last activity search STEP 1. This populates the html page with activity dates
+    except Exception as e:
+        msg = "An exception of type {0} occured, these were the arguments:\n{1!r}"
+        print (msg.format(type(e).__name__, e.args))
+
+    html_page_list = [r3.text,r4.text]
+
+    return html_page_list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def get_program_account_info(key, RP_account):
     url1 = 'https://membership.usairways.com/Login.aspx?ReturnUrl=http:%2f%2fwww.usairways.com%2fdefault.aspx'
     url2 = 'https://membership.usairways.com/Login.aspx?ReturnUrl=http%3a%2f%2fmembership.usairways.com%2fManage%2fAccountSummary.aspx'
@@ -123,7 +311,6 @@ def get_program_account_info(key, RP_account):
     form_data2['ctl00$phMain$yourMileModule$ctl00$endDate$SelectedDate'] = "06/19/2013" #date_end_str                     #end it today. This should search the last 18 months + for any activity
 
     cookie_dict = requests.utils.dict_from_cookiejar(s.cookies)
-    cookie_jar = requests.utils.cookiejar_from_dict(cookie_dict)
     cookie_str = make_cookie_str(cookie_dict)
     headers2['Cookie'] = cookie_str
     s.headers = headers2
@@ -150,23 +337,46 @@ def get_program_account_info(key, RP_account):
 
     add_cookie = {
                'domain':'.usairways.com',
+               'host':'.usairways.com',
                'expires':None,
-               'name':'.usairways.com',
+               'name':'s_sq',
                'path':'/',
                'value':'the cookie works',
                'version':0
     }
 
+#    requests.utils.add_dict_to_cookiejar(s.cookies, add_cookie)
+
+    cookie_dict = requests.utils.dict_from_cookiejar(s.cookies)
+    cookie_dict['TLTUID'] = 'A5D81E734642189E266C888157DFB3FE'
+    cookie_dict['TLTSID'] = '03C0B3074D1D22756FE20E93202DE72E'
+
+    cookie_dict['s_cc'] = 'true'
+    cookie_dict['s_ria'] = 'flash%2011%7Csilverlight%205.1'
+    cookie_dict['s_sq'] = 'usaircom=%26pid%3DYourMiles%26pidt%3D1%26oid%3Djavascript%253AWebForm_DoPostBackWithOptions(new%252520WebForm_PostBackOptions(%2522ctl00%2524phMain%2524yourMileModule%2524%26ot%3DA'
+#    cookie_dict['s_vi'] = '[CS]v1|2876FDDF05163419-4000017880037E29[CE]'
+
+    cookie_dict_master = {'.usairways.com':{'/':cookie_dict}}
+
+    cookie_jar = requests.utils.cookiejar_from_dict(cookie_dict)
+    cookie_jar_master = requests.utils.cookiejar_from_dict(cookie_dict_master)
+    s.cookies = cookie_jar
 
 
 
-    requests.utils.add_dict_to_cookiejar(s.cookies, add_cookie)
-    r4 = s.post(url3,data = form_data2)                    #setup dates, for last activity search STEP 1. This populates the html page with activity dates
-
+#    requests.utils.add_dict_to_cookiejar(s.cookies, add_cookie)
+    try:
+        r4 = s.post(url3,data = form_data2)                    #setup dates, for last activity search STEP 1. This populates the html page with activity dates
+    except Exception as e:
+        msg = "An exception of type {0} occured, these were the arguments:\n{1!r}"
+        print (msg.format(type(e).__name__, e.args))
 
     html_page_list = [r3.text,r4.text]
 
     return html_page_list
+
+
+
 
 
 def make_cookie_str(cookie_dict):
