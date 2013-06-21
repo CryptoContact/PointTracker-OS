@@ -159,3 +159,29 @@ def decrypt (key,enc_str):                                    #encrypted string
 #except Exception as e:
 #    msg = "An exception of type {0} occured, these were the arguments:\n{1!r}"
 #    print (msg.format(type(e).__name__, e.args))
+
+
+
+#how to set a cookie in requests
+
+#    my_cookie = {
+#        "version":0,
+#        "name":'s_sqq',
+#        "value":'usaircom=%26pid%3DYourMiles%26pidt%3D1%26oid%3Djavascript%253AWebForm_DoPostBackWithOptions(new%252520WebForm_PostBackOptions(%2522ctl00%2524phMain%2524yourMileModule%2524%26ot%3DA',
+#        "port":None,
+##        "port_specified":False,
+#        "domain":'.usairways.com',
+##        "domain_specified":False,
+##        "domain_initial_dot":False,
+#        "path":'/',
+##        "path_specified":True,
+#        "secure":False,
+#        "expires":None,
+#        "discard":True,
+#        "comment":None,
+#        "comment_url":None,
+#        "rest":{},                                     #{'HttpOnly': None},
+#        "rfc2109":False
+#    }
+#    s=requests.Session()
+#    s.cookies.set(**my_cookie)
