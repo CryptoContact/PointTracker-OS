@@ -17,6 +17,7 @@ def get_program_account_info(key,RP_account):
     url_loginSubmit = 'https://www.aa.com/login/loginSubmit.do'
     url_myAccountAccess = 'https://www.aa.com/myAccount/myAccountAccess.do'
 
+
     form_data = dict()
 
 #    AES_key = '0123456789abcdef'
@@ -27,9 +28,7 @@ def get_program_account_info(key,RP_account):
 #    form_data['password'] = RP_account['RP_password']
 
     s = requests.session()
-
     r_obj1 = s.post(url_loginSubmit, data= form_data)           #login
-
     r_obj2 = s.get(url_myAccountAccess)                         #Get Account Info page
 
     return r_obj2.text                                        #return webpage with account info to scrape

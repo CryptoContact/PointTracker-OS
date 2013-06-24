@@ -109,6 +109,14 @@ def get_program_account_info(key, RP_account):
         'Pragma':'no-cache'
         }
 
+#    proxies = {
+#        "http":"http://127.0.0.1:8888",
+#        "https":"https://127.0.0.1:8888",
+#    }
+
+
+
+
 
 
     form_data['ctl00$phMain$loginModule$ctl00$loginForm$UserName'] = RP_account['RP_username']
@@ -118,10 +126,10 @@ def get_program_account_info(key, RP_account):
     s = requests.Session()
     s.mount('https://', ssladapter.SSLAdapter(ssl_version = PROTOCOL_SSLv3))
 
+
+
     r1 = s.get(url1)                                      #USair Home Page
-
     r2 = s.post(url2, data = form_data)                    #Login in to usair
-
     r3 = s.get(url3)                                      #Your Miles page #R3.text contains Name, Account #, Balance only
 
     soup1 = BeautifulSoup(r3.text,"lxml")                    #this page also has __VIEWSTATE and __EVENTVALIDATION that we need for the next post to get activity history
